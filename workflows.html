@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Workflows — Pathi Manikanta</title>
+<meta name="description" content="How Pathi Manikanta's frontier-AI evaluation workflows work: OpenClaw Atlas golden/silver memory-trap pipeline and Project Seal hard-question authoring runbook." />
+<link rel="icon" href="https://github.com/PSPMANI.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script>
+  tailwind.config = { darkMode:'class', theme:{ extend:{
+    fontFamily:{ display:['Sora','sans-serif'], sans:['Inter','sans-serif'], mono:['JetBrains Mono','monospace'] },
+    colors:{ brand:{300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5'}, accent:{400:'#22d3ee',500:'#06b6d4'} },
+  }}}
+</script>
+<style>
+  body{font-family:'Inter',sans-serif}
+  h1,h2,h3,.font-display{font-family:'Sora',sans-serif}
+  .mesh{background:radial-gradient(60% 60% at 15% 10%,rgba(99,102,241,.35),transparent 60%),radial-gradient(50% 50% at 85% 5%,rgba(34,211,238,.28),transparent 60%)}
+  .grad-text{background:linear-gradient(120deg,#818cf8,#22d3ee,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glass{background:rgba(255,255,255,.04);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08)}
+  .step{transition:transform .3s,border-color .3s}
+  .step:hover{transform:translateX(6px);border-color:rgba(129,140,248,.55)}
+  .flowbox{transition:transform .25s,box-shadow .25s}
+  .flowbox:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(79,70,229,.6)}
+</style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50">
+  <nav class="glass mx-auto mt-3 max-w-5xl rounded-2xl px-5 py-3 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold"><span class="grad-text">Pathi</span>.M</a>
+    <div class="flex items-center gap-4 text-sm">
+      <a href="#openclaw" class="hover:text-accent-400 transition">OpenClaw Atlas</a>
+      <a href="#project-seal" class="hover:text-accent-400 transition">Project Seal</a>
+      <a href="index.html" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-3.5 py-1.5 font-semibold text-white transition"><i class="fa-solid fa-arrow-left text-xs"></i> Portfolio</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <div class="mesh absolute inset-0 -z-10"></div>
+  <div class="max-w-5xl mx-auto px-5 pt-20 pb-12 text-center">
+    <p class="text-accent-400 font-mono text-sm mb-3">// how my evaluation systems work</p>
+    <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Workflows</h1>
+    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Two runbooks I authored for reviewing frontier AI at Scale AI (Outlier). This page explains the <b>process</b> — the underlying task files stay private.</p>
+  </div>
+</section>
+
+<!-- ============ OPENCLAW ATLAS ============ -->
+<section id="openclaw" class="max-w-5xl mx-auto px-5 py-14">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
+    <span class="text-xs text-slate-500 font-mono">RL trajectory QC</span>
+  </div>
+  <h2 class="font-display text-3xl font-bold text-white">OpenClaw Atlas</h2>
+  <p class="text-slate-400 mt-3 max-w-3xl">Every task produces a matched pair of agent runs — a <b class="text-amber-300">golden</b> run that fails on purpose and a <b class="text-emerald-300">silver</b> run that passes — built around one <b>memory trap</b>.</p>
+
+  <!-- the one idea -->
+  <div class="glass rounded-2xl p-6 mt-8" data-aos="fade-up">
+    <h3 class="font-display font-semibold text-white flex items-center gap-2"><i class="fa-solid fa-lightbulb text-amber-400"></i> The one idea: the memory trap</h3>
+    <p class="text-sm text-slate-400 mt-3">The agent keeps notes in <code class="text-brand-300 font-mono">MEMORY.md</code>. The real, current facts live in the <b>universe</b> snapshot (calendar, email, contacts, fintrack…). A memory trap is a spot where the notes are <b>stale</b> and disagree with the universe. A good agent checks the real source; a weak agent trusts the stale note and commits to the wrong answer. The whole task is engineered around one such trap.</p>
+  </div>
+
+  <!-- flow -->
+  <h3 class="font-display font-semibold text-white mt-10 mb-4 flex items-center gap-2"><i class="fa-solid fa-diagram-project text-brand-400"></i> The pipeline</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3" data-aos="fade-up">
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">1</div><div class="text-sm font-semibold text-white mt-1">Set task</div><div class="text-[11px] text-slate-500">metadata.md</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">2</div><div class="text-sm font-semibold text-white mt-1">Write story</div><div class="text-[11px] text-slate-500">Story_generator</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">3</div><div class="text-sm font-semibold text-white mt-1">Find the trap</div><div class="text-[11px] text-slate-500">Discrepancy_finder</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">4</div><div class="text-sm font-semibold text-white mt-1">Write prompt</div><div class="text-[11px] text-slate-500">Prompt_generator</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-amber-400/40"><div class="text-amber-400 text-xs font-mono">5</div><div class="text-sm font-semibold text-white mt-1">Run Model A</div><div class="text-[11px] text-amber-300/80">GOLDEN · fails</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">6</div><div class="text-sm font-semibold text-white mt-1">Grade failure</div><div class="text-[11px] text-slate-500">Failure_checker</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-emerald-400/40"><div class="text-emerald-400 text-xs font-mono">7</div><div class="text-sm font-semibold text-white mt-1">Fix it</div><div class="text-[11px] text-emerald-300/80">SILVER · passes</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">8</div><div class="text-sm font-semibold text-white mt-1">Write tests</div><div class="text-[11px] text-slate-500">verifiers.py</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">9</div><div class="text-sm font-semibold text-white mt-1">Justify rubrics</div><div class="text-[11px] text-slate-500">Rubric_justif.</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">10</div><div class="text-sm font-semibold text-white mt-1">Final QC</div><div class="text-[11px] text-slate-500">QC_checker</div></div>
+  </div>
+
+  <!-- golden vs silver -->
+  <div class="grid sm:grid-cols-2 gap-4 mt-8">
+    <div class="glass rounded-2xl p-6 border-l-4 border-amber-400/60" data-aos="fade-right">
+      <h4 class="font-display font-semibold text-amber-300">Golden (Model A)</h4>
+      <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Springs the trap — uses the stale note</li>
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Commits to the wrong value</li>
+        <li><i class="fa-solid fa-folder text-amber-400 w-4"></i> Lands in <code class="font-mono">Golden/</code></li>
+      </ul>
+    </div>
+    <div class="glass rounded-2xl p-6 border-l-4 border-emerald-400/60" data-aos="fade-left">
+      <h4 class="font-display font-semibold text-emerald-300">Silver (Model B)</h4>
+      <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
+        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Turn-2 nudge → re-checks the real source</li>
+        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Hits 100% of the Desired Outcome</li>
+        <li><i class="fa-solid fa-folder text-emerald-400 w-4"></i> Lands in <code class="font-mono">Silver/</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="glass rounded-2xl p-5 mt-6 flex items-start gap-3" data-aos="fade-up">
+    <i class="fa-solid fa-scale-balanced text-brand-400 mt-1"></i>
+    <p class="text-sm text-slate-300"><b>The golden rule of grading:</b> the Desired Outcome is a plan, not a law. Rubrics and pytest tests are built from what the trajectory <i>actually did</i>, never from what was planned but never happened. That prevents "ghost grading."</p>
+  </div>
+</section>
+
+<div class="max-w-5xl mx-auto px-5"><div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div></div>
+
+<!-- ============ PROJECT SEAL ============ -->
+<section id="project-seal" class="max-w-5xl mx-auto px-5 py-14">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
+    <span class="text-xs text-slate-500 font-mono">hard-question authoring</span>
+  </div>
+  <h2 class="font-display text-3xl font-bold text-white">Project Seal — Authoring Workflow</h2>
+  <p class="text-slate-400 mt-3 max-w-3xl">A runbook for writing <b>hard, single-answer search questions</b>. Each needs several sources and several hops, has exactly one short answer, and defeats a strong AI with web search while staying solvable by a careful researcher who follows the steps.</p>
+
+  <div class="grid md:grid-cols-3 gap-4 mt-8">
+    <div class="glass rounded-2xl p-5" data-aos="fade-up">
+      <div class="text-brand-400 text-2xl"><i class="fa-solid fa-crosshairs"></i></div>
+      <h4 class="font-display font-semibold text-white mt-3">Difficulty is the final read</h4>
+      <p class="text-sm text-slate-400 mt-2">A strong AI searches and follows clues well. It breaks at the last step — the moment it must read one exact fact. Engineer that final read; the chain exists to stop a one-search win.</p>
+    </div>
+    <div class="glass rounded-2xl p-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-accent-400 text-2xl"><i class="fa-solid fa-clipboard-check"></i></div>
+      <h4 class="font-display font-semibold text-white mt-3">Verify before you build</h4>
+      <p class="text-sm text-slate-400 mt-2">A wrong reference answer invalidates the answer, the trajectory, and every failure block at once. Confirm against a primary source before building anything on top.</p>
+    </div>
+    <div class="glass rounded-2xl p-5" data-aos="fade-up" data-aos-delay="200">
+      <div class="text-violet-400 text-2xl"><i class="fa-solid fa-user-check"></i></div>
+      <h4 class="font-display font-semibold text-white mt-3">Write for the reviewer</h4>
+      <p class="text-sm text-slate-400 mt-2">A stranger must confirm your answer without asking you anything. Every ambiguity you leave is a chance for them to answer it wrong.</p>
+    </div>
+  </div>
+
+  <!-- loop -->
+  <h3 class="font-display font-semibold text-white mt-10 mb-4 flex items-center gap-2"><i class="fa-solid fa-rotate text-accent-400"></i> The loop, end to end</h3>
+  <div class="flex flex-wrap items-center gap-2 text-sm" data-aos="fade-up">
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Pick topic</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Make it hard</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Draft + technique</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Verify answer</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Test the model</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Trajectory</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Final check</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Submit</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Log</span>
+  </div>
+
+  <!-- eight rules -->
+  <h3 class="font-display font-semibold text-white mt-10 mb-4 flex items-center gap-2"><i class="fa-solid fa-list-check text-brand-400"></i> The eight quality rules <span class="text-xs font-normal text-slate-500">(all must be True)</span></h3>
+  <div class="grid sm:grid-cols-2 gap-3" data-aos="fade-up">
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">1 · Requires search</b><p class="text-sm text-slate-400 mt-1">Cannot be answered from common knowledge.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">2 · No shortcuts</b><p class="text-sm text-slate-400 mt-1">The wording does not leak or hint at the answer.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">3 · No external references</b><p class="text-sm text-slate-400 mt-1">Self-contained; no tables, images, or attachments.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">4 · Multi-hop</b><p class="text-sm text-slate-400 mt-1">Several sources and several reasoning hops to reach the answer.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">5 · One short answer</b><p class="text-sm text-slate-400 mt-1">Exactly one name, place, date, number, title, or event.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">6 · Verifiable</b><p class="text-sm text-slate-400 mt-1">Confirmable against an independent primary source.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">7 · Defeats a strong AI</b><p class="text-sm text-slate-400 mt-1">2–3 confident wrong answers from the model, not refusals.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">8 · Solvable by a human</b><p class="text-sm text-slate-400 mt-1">A careful researcher following the steps can still get it.</p></div>
+  </div>
+
+  <div class="mt-8">
+    <a href="https://pspmani.github.io/project-seal-qc/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-3 text-sm font-semibold text-white transition"><i class="fa-solid fa-clipboard-check"></i> See the public QC Checker tool <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+  </div>
+</section>
+
+<footer class="border-t border-white/5 mt-6">
+  <div class="max-w-5xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+    <a href="index.html" class="hover:text-accent-400 transition"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
+    <p class="font-mono text-xs">© <span id="yr"></span> Pathi Manikanta</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({duration:700,once:true,offset:50});document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

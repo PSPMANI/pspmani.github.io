@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pathi Manikanta — AI Evaluation Specialist & ML Engineer</title>
+<meta name="description" content="Pathi Manikanta — AI Evaluation Specialist, ML Engineer & Full Stack Developer. Reviewing frontier AI at Scale AI (Outlier). RLHF/RLAIF, LLM evaluation, rubric design, ML pipelines." />
+<meta property="og:title" content="Pathi Manikanta — AI Evaluation Specialist & ML Engineer" />
+<meta property="og:description" content="Building and evaluating frontier AI. RLHF/RLAIF, LLM evaluation, ML pipelines, full-stack development." />
+<meta property="og:image" content="https://github.com/PSPMANI.png" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="https://github.com/PSPMANI.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+        colors: {
+          brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' },
+          accent: { 400:'#22d3ee',500:'#06b6d4',600:'#0891b2' },
+        },
+        keyframes: {
+          floaty: { '0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-14px)'} },
+          shimmer: { '0%':{backgroundPosition:'0% 50%'},'50%':{backgroundPosition:'100% 50%'},'100%':{backgroundPosition:'0% 50%'} },
+        },
+        animation: { floaty:'floaty 6s ease-in-out infinite', shimmer:'shimmer 8s ease infinite' },
+      }
+    }
+  }
+</script>
+<style>
+  html{ -webkit-font-smoothing:antialiased; }
+  body{ font-family:'Inter',sans-serif; }
+  h1,h2,h3,.font-display{ font-family:'Sora',sans-serif; }
+  .mesh{ background:
+      radial-gradient(60% 60% at 15% 20%, rgba(99,102,241,.35), transparent 60%),
+      radial-gradient(50% 50% at 85% 15%, rgba(34,211,238,.28), transparent 60%),
+      radial-gradient(60% 60% at 75% 85%, rgba(139,92,246,.30), transparent 60%);
+  }
+  .grad-text{ background:linear-gradient(120deg,#818cf8,#22d3ee,#a78bfa,#818cf8); background-size:300% 300%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer 8s ease infinite; }
+  .glass{ background:rgba(255,255,255,.04); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.08); }
+  .light .glass{ background:rgba(255,255,255,.72); border:1px solid rgba(15,23,42,.08); }
+  .card-hover{ transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
+  .card-hover:hover{ transform:translateY(-6px); box-shadow:0 24px 60px -20px rgba(79,70,229,.5); border-color:rgba(129,140,248,.6); }
+  .chip{ transition:transform .2s, background .2s; }
+  .chip:hover{ transform:translateY(-3px); }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:linear-gradient(90deg,#818cf8,#22d3ee); transition:width .3s; }
+  .nav-link:hover::after{ width:100%; }
+  .type-cursor{ display:inline-block; width:3px; margin-left:2px; background:#22d3ee; animation:blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{opacity:0} }
+  ::selection{ background:rgba(99,102,241,.4); }
+  .divider-glow{ height:1px; background:linear-gradient(90deg,transparent,rgba(129,140,248,.5),transparent); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:text-white transition-colors duration-300">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <nav class="glass mx-auto mt-3 max-w-6xl rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="font-display font-extrabold tracking-tight text-lg">
+      <span class="grad-text">Pathi</span><span class="text-slate-100">.M</span>
+    </a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#work" class="nav-link">Projects</a>
+      <a href="#workflows" class="nav-link">Workflows</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="themeBtn" aria-label="Toggle theme" class="h-9 w-9 grid place-items-center rounded-xl glass hover:scale-105 transition">
+        <i class="fa-solid fa-moon text-slate-200"></i>
+      </button>
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-4 py-2 text-sm font-semibold text-white transition">
+        <i class="fa-regular fa-paper-plane"></i> Hire me
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative overflow-hidden">
+  <div class="mesh absolute inset-0 -z-10"></div>
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_-20%,rgba(2,6,23,0),rgba(2,6,23,.9))]"></div>
+  <div class="max-w-6xl mx-auto px-5 pt-36 pb-24 md:pt-44 md:pb-32 grid md:grid-cols-[1.4fr,1fr] gap-12 items-center">
+    <div data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-accent-400 mb-6">
+        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Currently reviewing frontier AI @ Scale AI (Outlier)
+      </div>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.05] text-white">
+        Hi, I'm <span class="grad-text">Pathi Manikanta</span>
+      </h1>
+      <p class="mt-4 text-xl sm:text-2xl font-display font-semibold text-slate-300">
+        <span id="typed"></span><span class="type-cursor">&nbsp;</span>
+      </p>
+      <p class="mt-5 max-w-xl text-slate-400 leading-relaxed">
+        I build and evaluate ML systems from raw data to trained models, and I review agentic
+        trajectories and rubrics for frontier AI. I care about the last mile: where a model
+        breaks, and how you prove it.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#work" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-accent-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 hover:-translate-y-0.5 transition">
+          <i class="fa-solid fa-layer-group"></i> View my work
+        </a>
+        <a href="https://github.com/PSPMANI" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold text-slate-100 hover:-translate-y-0.5 transition">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold text-slate-100 hover:-translate-y-0.5 transition">
+          <i class="fa-brands fa-linkedin-in text-[#4aa4ff]"></i> LinkedIn
+        </a>
+        <a href="mailto:pmanikanta818@gmail.com" class="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold text-slate-100 hover:-translate-y-0.5 transition">
+          <i class="fa-solid fa-envelope text-rose-400"></i> Email
+        </a>
+      </div>
+    </div>
+    <div class="relative mx-auto md:mx-0" data-aos="fade-left" data-aos-delay="150">
+      <div class="absolute -inset-6 rounded-full bg-gradient-to-tr from-brand-600/40 to-accent-500/40 blur-2xl animate-floaty"></div>
+      <img src="https://github.com/PSPMANI.png" alt="Pathi Manikanta"
+           class="relative h-52 w-52 md:h-64 md:w-64 rounded-full object-cover ring-4 ring-white/10 shadow-2xl" />
+      <div class="glass absolute -bottom-4 -left-4 rounded-2xl px-4 py-3 text-center">
+        <div class="font-display text-2xl font-bold grad-text">8.0</div>
+        <div class="text-[11px] text-slate-400">B.E. CGPA</div>
+      </div>
+      <div class="glass absolute -top-3 -right-3 rounded-2xl px-4 py-3 text-center">
+        <div class="font-display text-2xl font-bold grad-text">92.5%</div>
+        <div class="text-[11px] text-slate-400">ML accuracy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="max-w-6xl mx-auto px-5 -mt-6">
+  <div class="glass rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5" data-aos="fade-up">
+    <div class="p-6 text-center">
+      <div class="font-display text-3xl font-bold text-white">50+</div>
+      <div class="text-xs text-slate-400 mt-1">Pass/fail rubrics authored</div>
+    </div>
+    <div class="p-6 text-center">
+      <div class="font-display text-3xl font-bold text-white">100+</div>
+      <div class="text-xs text-slate-400 mt-1">Trajectories audited</div>
+    </div>
+    <div class="p-6 text-center">
+      <div class="font-display text-3xl font-bold text-white">Attempter→Reviewer</div>
+      <div class="text-xs text-slate-400 mt-1">Promoted at Outlier</div>
+    </div>
+    <div class="p-6 text-center">
+      <div class="font-display text-3xl font-bold text-white">10+</div>
+      <div class="text-xs text-slate-400 mt-1">Shipped projects</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="max-w-6xl mx-auto px-5 py-24">
+  <div class="grid md:grid-cols-[1fr,1.3fr] gap-10 items-start">
+    <div data-aos="fade-right">
+      <p class="text-accent-400 font-mono text-sm mb-2">// about</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Evaluator by day, builder always.</h2>
+    </div>
+    <div class="space-y-5 text-slate-400 leading-relaxed" data-aos="fade-left">
+      <p>
+        I'm an <span class="text-slate-200 font-semibold">AI Evaluation Specialist, ML Engineer and Full Stack Developer</span>
+        from Andhra Pradesh, India. I hold a B.E. in Computer Science & Engineering (Data Science) from Anna University (2025).
+      </p>
+      <p>
+        At <span class="text-slate-200 font-semibold">Scale AI (Outlier)</span> I review frontier AI on the
+        <span class="text-brand-300">OpenClaw Atlas</span> and <span class="text-brand-300">Blueshell</span> programs, where I was promoted from
+        Attempter to Reviewer. I design binary pass/fail rubrics backed by pytest verifiers and audit agentic
+        tool-use trajectories for correctness.
+      </p>
+      <p class="font-mono text-sm text-slate-500 border-l-2 border-brand-500/60 pl-4">
+        Fun fact: I built my first ML model using data from Arduino sensors I wired up myself.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="max-w-6xl mx-auto px-5 py-16">
+  <div class="text-center mb-14" data-aos="fade-up">
+    <p class="text-accent-400 font-mono text-sm mb-2">// toolkit</p>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Tech Stack</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="glass rounded-2xl p-6 card-hover" data-aos="fade-up">
+      <h3 class="font-display font-semibold text-white flex items-center gap-2 mb-4"><i class="fa-solid fa-brain text-brand-400"></i> ML & AI Evaluation</h3>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-python-plain colored"></i> Python</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-scikitlearn-plain colored"></i> scikit-learn</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-tensorflow-original colored"></i> TensorFlow</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-keras-plain colored"></i> Keras</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-numpy-original colored"></i> NumPy</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-pandas-original colored"></i> Pandas</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-opencv-plain colored"></i> OpenCV</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-pytest-plain colored"></i> pytest</span>
+        <span class="chip glass rounded-lg px-3 py-1.5">NLTK · RLHF · RLAIF</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="font-display font-semibold text-white flex items-center gap-2 mb-4"><i class="fa-solid fa-code text-accent-400"></i> Full Stack & Data</h3>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-react-original colored"></i> React</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-mysql-plain colored"></i> SQL</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-java-plain colored"></i> Java</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-cplusplus-plain colored"></i> C/C++</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-html5-plain colored"></i> HTML5</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-css3-plain colored"></i> CSS3</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-matlab-plain colored"></i> MATLAB</span>
+      </div>
+    </div>
+    <div class="glass rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="font-display font-semibold text-white flex items-center gap-2 mb-4"><i class="fa-solid fa-cloud text-violet-400"></i> Cloud, Tools & Hardware</h3>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-git-plain colored"></i> Git</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-linux-plain colored"></i> Linux</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-jupyter-plain colored"></i> Jupyter</span>
+        <span class="chip glass rounded-lg px-3 py-1.5"><i class="devicon-arduino-plain colored"></i> Arduino</span>
+        <span class="chip glass rounded-lg px-3 py-1.5">Power BI · Excel</span>
+        <span class="chip glass rounded-lg px-3 py-1.5">Google Workspace</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKFLOW / EVALUATION PROJECTS ============ -->
+<section id="workflows" class="max-w-6xl mx-auto px-5 py-20">
+  <div class="text-center mb-4" data-aos="fade-up">
+    <p class="text-accent-400 font-mono text-sm mb-2">// frontier AI evaluation</p>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Evaluation & Workflow Systems</h2>
+    <p class="text-slate-400 mt-3 max-w-2xl mx-auto">Process runbooks and QC tooling I authored for reviewing frontier AI at Scale AI (Outlier). Click <b>View Workflow</b> to see how each one works — the process only, not the private task files.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6 mt-10">
+    <!-- OpenClaw Atlas -->
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-brand-600/20 text-brand-300 text-lg"><i class="fa-solid fa-diagram-project"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">OpenClaw Atlas</h3>
+      <p class="text-sm text-slate-400 mt-2 flex-1">Golden/silver "memory-trap" pipeline for authoring and QC-ing agentic RL trajectories — story → discrepancy → prompt → failure grade → silver fix → pytest verifiers → QC.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="workflows.html#openclaw" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
+      </div>
+    </div>
+    <!-- Project Seal Workflow -->
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-accent-500/20 text-accent-400 text-lg"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">Project Seal — Authoring</h3>
+      <p class="text-sm text-slate-400 mt-2 flex-1">Runbook for writing hard, single-answer, multi-hop search questions that defeat a strong AI with web search yet stay solvable by a careful researcher. Eight quality rules, 18 techniques.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="workflows.html#project-seal" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-accent-500 hover:bg-accent-400 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
+      </div>
+    </div>
+    <!-- Project Seal QC -->
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="200">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-emerald-500/20 text-emerald-300 text-lg"><i class="fa-solid fa-clipboard-check"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"><i class="fa-solid fa-globe text-[9px]"></i> Public</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">Project Seal — QC Checker</h3>
+      <p class="text-sm text-slate-400 mt-2 flex-1">An automated QC checker for Project Seal task submissions: runs a task package against the rejection rules before it ships. Live, public tooling.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="https://pspmani.github.io/project-seal-qc/" target="_blank" rel="noopener" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live</a>
+        <a href="https://github.com/PSPMANI/project-seal-qc" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl glass px-3 py-2 text-sm font-semibold text-slate-100 transition"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ML / ENGINEERING PROJECTS ============ -->
+<section id="work" class="max-w-6xl mx-auto px-5 py-20">
+  <div class="text-center mb-4" data-aos="fade-up">
+    <p class="text-accent-400 font-mono text-sm mb-2">// engineering</p>
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-white">ML & Engineering Projects</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6 mt-10" id="projectGrid"></div>
+</section>
+
+<!-- ============ EDUCATION + CERTS ============ -->
+<section id="education" class="max-w-6xl mx-auto px-5 py-20">
+  <div class="grid md:grid-cols-2 gap-10">
+    <div data-aos="fade-right">
+      <p class="text-accent-400 font-mono text-sm mb-2">// education</p>
+      <h2 class="font-display text-3xl font-bold text-white mb-8">Education</h2>
+      <div class="space-y-6 relative border-l border-white/10 pl-6">
+        <div class="relative">
+          <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-brand-500 ring-4 ring-brand-500/20"></span>
+          <div class="font-semibold text-white">B.E. Computer Science & Engineering (Data Science)</div>
+          <div class="text-sm text-slate-400">Jansons Institute of Technology · Anna University</div>
+          <div class="text-xs text-slate-500 mt-1">2021 – 2025 · CGPA 8.0</div>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-accent-500 ring-4 ring-accent-500/20"></span>
+          <div class="font-semibold text-white">Higher Secondary (XII), MPC</div>
+          <div class="text-sm text-slate-400">Sri Sai Junior College, Kanigiri, AP</div>
+          <div class="text-xs text-slate-500 mt-1">2021</div>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-violet-500 ring-4 ring-violet-500/20"></span>
+          <div class="font-semibold text-white">Secondary (X)</div>
+          <div class="text-sm text-slate-400">Nagarjuna Model School, Kadapa, AP</div>
+          <div class="text-xs text-slate-500 mt-1">2019 · CGPA 9.8</div>
+        </div>
+      </div>
+    </div>
+    <div data-aos="fade-left">
+      <p class="text-accent-400 font-mono text-sm mb-2">// credentials</p>
+      <h2 class="font-display text-3xl font-bold text-white mb-8">Certifications</h2>
+      <div class="space-y-3">
+        <div class="glass rounded-xl p-4 flex items-center gap-4 card-hover"><i class="fa-brands fa-aws text-2xl text-amber-400"></i><div><div class="font-semibold text-white text-sm">AWS Academy Cloud Foundations</div><div class="text-xs text-slate-400">Amazon Web Services · 2022</div></div></div>
+        <div class="glass rounded-xl p-4 flex items-center gap-4 card-hover"><i class="fa-solid fa-file-invoice-dollar text-2xl text-emerald-400"></i><div><div class="font-semibold text-white text-sm">Finance Foundations: Income Taxes</div><div class="text-xs text-slate-400">LinkedIn · 2025</div></div></div>
+        <div class="glass rounded-xl p-4 flex items-center gap-4 card-hover"><i class="fa-brands fa-microsoft text-2xl text-sky-400"></i><div><div class="font-semibold text-white text-sm">Microsoft 365 Productivity (Advanced)</div><div class="text-xs text-slate-400">Microsoft · 2022</div></div></div>
+        <div class="glass rounded-xl p-4 flex items-center gap-4 card-hover"><i class="fa-solid fa-user-shield text-2xl text-rose-400"></i><div><div class="font-semibold text-white text-sm">Ethical Hacking & Penetration Testing</div><div class="text-xs text-slate-400">Scholiverse Educare Pvt. Ltd.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="max-w-6xl mx-auto px-5 py-24">
+  <div class="glass rounded-3xl p-10 md:p-16 text-center relative overflow-hidden" data-aos="zoom-in">
+    <div class="mesh absolute inset-0 -z-10 opacity-70"></div>
+    <p class="text-accent-400 font-mono text-sm mb-3">// let's talk</p>
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-white">Open to AI Evaluation, LLM<br class="hidden md:block"/> Engineering & ML roles</h2>
+    <p class="text-slate-300 mt-4 max-w-xl mx-auto">If you're hiring for frontier AI evaluation, ML engineering, or full-stack work, I'd love to talk.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="mailto:pmanikanta818@gmail.com" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-600 to-accent-500 px-6 py-3 font-semibold text-white shadow-lg shadow-brand-600/30 hover:-translate-y-0.5 transition"><i class="fa-regular fa-envelope"></i> pmanikanta818@gmail.com</a>
+      <a href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl glass px-6 py-3 font-semibold text-slate-100 hover:-translate-y-0.5 transition"><i class="fa-brands fa-linkedin-in text-[#4aa4ff]"></i> LinkedIn</a>
+      <a href="https://github.com/PSPMANI" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl glass px-6 py-3 font-semibold text-slate-100 hover:-translate-y-0.5 transition"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+    <p>© <span id="yr"></span> Pathi Manikanta · Andhra Pradesh, India</p>
+    <p class="font-mono text-xs">Built with Tailwind · Deployed on GitHub Pages</p>
+  </div>
+</footer>
+
+<a href="#top" id="toTop" class="fixed bottom-6 right-6 h-11 w-11 grid place-items-center rounded-full bg-brand-600 text-white shadow-lg shadow-brand-600/40 opacity-0 pointer-events-none transition hover:bg-brand-500"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Typed roles
+  const roles = ["AI Evaluation Specialist","ML Engineer","Full Stack Developer","RLHF / RLAIF Reviewer","Prompt Engineer"];
+  const el = document.getElementById('typed');
+  let ri=0, ci=0, del=false;
+  (function tick(){
+    const w = roles[ri];
+    el.textContent = w.slice(0, ci);
+    if(!del && ci<w.length){ ci++; }
+    else if(!del && ci===w.length){ del=true; return setTimeout(tick, 1400); }
+    else if(del && ci>0){ ci--; }
+    else { del=false; ri=(ri+1)%roles.length; }
+    setTimeout(tick, del?45:85);
+  })();
+
+  // Theme toggle
+  const html = document.documentElement, tb = document.getElementById('themeBtn');
+  function apply(light){
+    html.classList.toggle('light', light);
+    html.classList.toggle('dark', !light);
+    document.body.classList.toggle('bg-slate-950', !light);
+    document.body.classList.toggle('text-slate-200', !light);
+    document.body.classList.toggle('bg-slate-50', light);
+    document.body.classList.toggle('text-slate-800', light);
+    tb.innerHTML = light ? '<i class="fa-solid fa-sun text-amber-500"></i>' : '<i class="fa-solid fa-moon text-slate-200"></i>';
+  }
+  tb.addEventListener('click', ()=>{ const light=!html.classList.contains('light'); apply(light); localStorage.setItem('pm-light', light); });
+  apply(localStorage.getItem('pm-light')==='true');
+
+  // To-top button
+  const toTop=document.getElementById('toTop');
+  addEventListener('scroll',()=>{ const s=scrollY>500; toTop.style.opacity=s?1:0; toTop.style.pointerEvents=s?'auto':'none'; });
+
+  // Projects (rendered from data)
+  const projects = [
+    { title:"Diabetes Foot Pressure Detection", vis:"Public", icon:"fa-shoe-prints", color:"brand",
+      desc:"Full ML pipeline from Arduino sensors to classifiers at 92.5% accuracy. Identified and resolved a data-leakage issue.",
+      meta:"Final-Year B.E. Project · 2025", tech:["Arduino","MATLAB","scikit-learn","Keras"],
+      url:"https://github.com/PSPMANI/diabetes-foot-pressure-detection" },
+    { title:"Spam Email Classifier", vis:"Public", icon:"fa-envelope-open-text", color:"accent",
+      desc:"NLP pipeline with NLTK and TF-IDF hitting 97.8% accuracy with Linear SVM on 1000+ emails.",
+      meta:"College Project · 2024", tech:["Python","NLTK","TF-IDF","SVM"],
+      url:"https://github.com/PSPMANI/spam-email-classifier" },
+    { title:"Face Recognition (OpenCV)", vis:"Private", icon:"fa-face-viewfinder", color:"violet",
+      desc:"Real-time face detection & recognition at 15+ FPS with a 70%+ confidence threshold.",
+      meta:"College Project · 2024", tech:["Python","OpenCV","LBPH"],
+      url:"https://github.com/PSPMANI/face-recognition-opencv" },
+    { title:"IoT Environment Monitor", vis:"Public", icon:"fa-satellite-dish", color:"emerald",
+      desc:"Real-time sensor pipeline streaming data every 2 seconds to a remote dashboard.",
+      meta:"Vaayusastra Internship · 2023", tech:["Arduino","DHT11","BMP180"],
+      url:"https://github.com/PSPMANI/iot-environment-monitor" },
+    { title:"Google Doc Grid Parser", vis:"Public", icon:"fa-table-cells", color:"accent",
+      desc:"Parses coordinate triples from a Google Doc and prints the hidden block-letter message.",
+      meta:"Personal Project", tech:["Python","BeautifulSoup"],
+      url:"https://github.com/PSPMANI/google-doc-grid-parser" },
+    { title:"Online Fraud Detection", vis:"Public", icon:"fa-shield-halved", color:"rose",
+      desc:"Classifier flagging fraudulent transactions from behavioural and transactional signals.",
+      meta:"ML Project", tech:["Python","scikit-learn","Pandas"],
+      url:"https://github.com/PSPMANI/OnlineFrauddetection" },
+  ];
+  const visStyle = v => v==="Public"
+    ? 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30'
+    : 'bg-amber-500/15 text-amber-300 border-amber-400/30';
+  const visIcon = v => v==="Public" ? 'fa-globe' : 'fa-lock';
+  document.getElementById('projectGrid').innerHTML = projects.map((p,i)=>`
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="${(i%2)*100}">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-${p.color}-500/20 text-${p.color}-300 text-lg"><i class="fa-solid ${p.icon}"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 border ${visStyle(p.vis)}"><i class="fa-solid ${visIcon(p.vis)} text-[9px]"></i> ${p.vis}</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">${p.title}</h3>
+      <p class="text-sm text-slate-400 mt-2 flex-1">${p.desc}</p>
+      <div class="flex flex-wrap gap-1.5 mt-4">${p.tech.map(t=>`<span class="text-[11px] font-mono rounded-md px-2 py-0.5 bg-white/5 text-slate-300">${t}</span>`).join('')}</div>
+      <div class="flex items-center justify-between mt-5">
+        <span class="text-xs text-slate-500">${p.meta}</span>
+        <a href="${p.url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-accent-400 transition">Code <i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>`).join('');
+</script>
+</body>
+</html>
