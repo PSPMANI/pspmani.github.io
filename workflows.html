@@ -36,10 +36,12 @@
 <header class="sticky top-0 z-50">
   <nav class="glass mx-auto mt-3 max-w-5xl rounded-2xl px-5 py-3 flex items-center justify-between">
     <a href="index.html" class="font-display font-extrabold"><span class="grad-text">Pathi</span>.M</a>
-    <div class="flex items-center gap-4 text-sm">
-      <a href="#openclaw" class="hover:text-accent-400 transition">OpenClaw Atlas</a>
-      <a href="#project-seal" class="hover:text-accent-400 transition">Project Seal</a>
-      <a href="index.html" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-3.5 py-1.5 font-semibold text-white transition"><i class="fa-solid fa-arrow-left text-xs"></i> Portfolio</a>
+    <div class="flex items-center gap-3 sm:gap-4 text-sm overflow-x-auto">
+      <a href="#openclaw" class="hover:text-accent-400 transition whitespace-nowrap">OpenClaw Atlas</a>
+      <a href="#blue-shell" class="hover:text-accent-400 transition whitespace-nowrap">Blue Shell</a>
+      <a href="#lobster-safety" class="hover:text-accent-400 transition whitespace-nowrap">Lobster Safety</a>
+      <a href="#project-seal" class="hover:text-accent-400 transition whitespace-nowrap">Project Seal</a>
+      <a href="index.html" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-3.5 py-1.5 font-semibold text-white transition whitespace-nowrap"><i class="fa-solid fa-arrow-left text-xs"></i> Portfolio</a>
     </div>
   </nav>
 </header>
@@ -50,7 +52,7 @@
   <div class="max-w-5xl mx-auto px-5 pt-20 pb-12 text-center">
     <p class="text-accent-400 font-mono text-sm mb-3">// how my evaluation systems work</p>
     <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Workflows</h1>
-    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Two runbooks I authored for reviewing frontier AI at Scale AI (Outlier). This page explains the <b>process</b> — the underlying task files stay private.</p>
+    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Four workflows I authored for reviewing frontier AI at <b>Scale AI (Outlier)</b> and <b>Handshake AI</b>. This page explains the <b>process</b> — the underlying task files stay private.</p>
   </div>
 </section>
 
@@ -112,11 +114,91 @@
 
 <div class="max-w-5xl mx-auto px-5"><div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div></div>
 
+<!-- ============ BLUE SHELL ============ -->
+<section id="blue-shell" class="max-w-5xl mx-auto px-5 py-14">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
+    <span class="text-xs text-slate-500 font-mono">Scale AI (Outlier) · capabilities RL</span>
+  </div>
+  <h2 class="font-display text-3xl font-bold text-white">Blue Shell</h2>
+  <p class="text-slate-400 mt-3 max-w-3xl">A worker toolkit for OpenClaw <b>capabilities</b> tasks. Every task is a <b>two-turn</b> build around a failure trap: <b class="text-amber-300">Turn 1</b> must fail at least half the rubric, and a small <b class="text-emerald-300">Turn 2</b> nudge must pass it 100%. The gap between the two runs is the signal.</p>
+
+  <h3 class="font-display font-semibold text-white mt-8 mb-4 flex items-center gap-2"><i class="fa-solid fa-diagram-project text-sky-400"></i> The loop</h3>
+  <div class="flex flex-wrap items-center gap-2 text-sm" data-aos="fade-up">
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Story Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Prompt Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-amber-300 ring-1 ring-amber-400/40">Turn 1 · fails ≥50%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Failure Checker</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Silver Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-emerald-300 ring-1 ring-emerald-400/40">Turn 2 · passes 100%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Rubric Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-white">QC Checker</span>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-4 mt-8">
+    <div class="glass rounded-2xl p-6 border-l-4 border-amber-400/60" data-aos="fade-right">
+      <h4 class="font-display font-semibold text-amber-300">Turn 1 — Model A</h4>
+      <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Runs the prompt unguided</li>
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Must fail ≥ 50% of the rubric</li>
+        <li><i class="fa-solid fa-rotate-left text-amber-400 w-4"></i> Too weak? Regenerate a harder prompt</li>
+      </ul>
+    </div>
+    <div class="glass rounded-2xl p-6 border-l-4 border-emerald-400/60" data-aos="fade-left">
+      <h4 class="font-display font-semibold text-emerald-300">Turn 2 — Model B</h4>
+      <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
+        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Seed restored + silver nudges applied</li>
+        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Must pass 100% (monotonic gain)</li>
+        <li><i class="fa-solid fa-flag-checkered text-emerald-400 w-4"></i> Then finalize rubrics + QC</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-5xl mx-auto px-5"><div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div></div>
+
+<!-- ============ LOBSTER SAFETY ============ -->
+<section id="lobster-safety" class="max-w-5xl mx-auto px-5 py-14">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
+    <span class="text-xs text-slate-500 font-mono">Scale AI (Outlier) · safety RL</span>
+  </div>
+  <h2 class="font-display text-3xl font-bold text-white">Lobster Safety</h2>
+  <p class="text-slate-400 mt-3 max-w-3xl">A <b>sequential worker pack</b> for OpenClaw <b>safety</b> tasks. The work is split into nine workers run one at a time, with a hard <code class="text-rose-300 font-mono">PASS</code> / <code class="text-rose-300 font-mono">STOP</code> gate between each so the process can never run ahead of its own safety checks. Only Worker 5 may act, and only inside the instrumented environment.</p>
+
+  <h3 class="font-display font-semibold text-white mt-8 mb-4 flex items-center gap-2"><i class="fa-solid fa-list-ol text-rose-400"></i> The nine workers</h3>
+  <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-3" data-aos="fade-up">
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">1</div><div class="text-sm font-semibold text-white mt-1">Assignment</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">2</div><div class="text-sm font-semibold text-white mt-1">Safety Scenario</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">3</div><div class="text-sm font-semibold text-white mt-1">Story Draft</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">4</div><div class="text-sm font-semibold text-white mt-1">Design Gate</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-rose-400/50"><div class="text-rose-300 text-xs font-mono">5</div><div class="text-sm font-semibold text-white mt-1">Execution</div><div class="text-[10px] text-rose-300/80">only acting worker</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">6</div><div class="text-sm font-semibold text-white mt-1">Trajectory Eval</div><div class="text-[10px] text-slate-500">F1–F10 · S0–S3</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">7</div><div class="text-sm font-semibold text-white mt-1">Rubric Builder</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">8</div><div class="text-sm font-semibold text-white mt-1">Unit Tests</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">9</div><div class="text-sm font-semibold text-white mt-1">Final QC</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center bg-emerald-500/10"><div class="text-emerald-400 text-xs font-mono"><i class="fa-solid fa-flag-checkered"></i></div><div class="text-sm font-semibold text-white mt-1">Submit</div></div>
+  </div>
+
+  <div class="glass rounded-2xl p-5 mt-6 flex items-start gap-3" data-aos="fade-up">
+    <i class="fa-solid fa-traffic-light text-rose-400 mt-1"></i>
+    <p class="text-sm text-slate-300">Each worker ends with one contract: <code class="font-mono text-emerald-300">STATUS: PASS</code> (advance to the next worker) or <code class="font-mono text-rose-300">STATUS: STOP</code> (name the blocker and the required fix). You never advance on a STOP.</p>
+  </div>
+
+  <h3 class="font-display font-semibold text-white mt-8 mb-4 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-rose-400"></i> The SSOT safety taxonomy</h3>
+  <div class="grid sm:grid-cols-2 gap-3" data-aos="fade-up">
+    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Failure categories · F1–F10</b><p class="text-xs text-slate-400 mt-2 leading-relaxed">Scope & Authority · Escalation & Judgment · Privacy & Data · Credential & Security · Injection & Robustness · Honesty & Transparency · Behavioral · Multi-Agent · Safety & Legal · Over-Caution.</p></div>
+    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Severity · S0–S3</b><p class="text-xs text-slate-400 mt-2 leading-relaxed"><b class="text-rose-300">S0</b> critical / irreversible · <b class="text-amber-300">S1</b> severe but recoverable · <b class="text-yellow-300">S2</b> moderate / correctable · <b class="text-emerald-300">S3</b> low / tolerable. Every finding cites concrete quotes and timestamps.</p></div>
+  </div>
+</section>
+
+<div class="max-w-5xl mx-auto px-5"><div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div></div>
+
 <!-- ============ PROJECT SEAL ============ -->
 <section id="project-seal" class="max-w-5xl mx-auto px-5 py-14">
   <div class="flex items-center gap-3 mb-2">
     <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
-    <span class="text-xs text-slate-500 font-mono">hard-question authoring</span>
+    <span class="text-xs text-slate-500 font-mono">Handshake AI · hard-question authoring</span>
   </div>
   <h2 class="font-display text-3xl font-bold text-white">Project Seal — Authoring Workflow</h2>
   <p class="text-slate-400 mt-3 max-w-3xl">A runbook for writing <b>hard, single-answer search questions</b>. Each needs several sources and several hops, has exactly one short answer, and defeats a strong AI with web search while staying solvable by a careful researcher who follows the steps.</p>

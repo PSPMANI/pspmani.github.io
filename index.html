@@ -247,7 +247,7 @@
   <div class="text-center mb-4" data-aos="fade-up">
     <p class="text-accent-400 font-mono text-sm mb-2">// frontier AI evaluation</p>
     <h2 class="font-display text-3xl md:text-4xl font-bold text-white">Evaluation & Workflow Systems</h2>
-    <p class="text-slate-400 mt-3 max-w-2xl mx-auto">Process runbooks and QC tooling I authored for reviewing frontier AI at Scale AI (Outlier). Click <b>View Workflow</b> to see how each one works — the process only, not the private task files.</p>
+    <p class="text-slate-400 mt-3 max-w-2xl mx-auto">Process runbooks and QC tooling I authored for reviewing frontier AI at <b>Scale AI (Outlier)</b> and <b>Handshake AI</b>. Click <b>View Workflow</b> to see how each one works — the process only, not the private task files.</p>
   </div>
   <div class="grid md:grid-cols-3 gap-6 mt-10">
     <!-- OpenClaw Atlas -->
@@ -257,19 +257,47 @@
         <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
       </div>
       <h3 class="font-display font-semibold text-white text-lg">OpenClaw Atlas</h3>
-      <p class="text-sm text-slate-400 mt-2 flex-1">Golden/silver "memory-trap" pipeline for authoring and QC-ing agentic RL trajectories — story → discrepancy → prompt → failure grade → silver fix → pytest verifiers → QC.</p>
+      <div class="text-[11px] text-slate-500 mb-1">Scale AI (Outlier)</div>
+      <p class="text-sm text-slate-400 mt-1 flex-1">Golden/silver "memory-trap" pipeline for authoring and QC-ing agentic RL trajectories — story → discrepancy → prompt → failure grade → silver fix → pytest verifiers → QC.</p>
       <div class="mt-5 flex gap-2">
         <a href="workflows.html#openclaw" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
       </div>
     </div>
-    <!-- Project Seal Workflow -->
+    <!-- Blue Shell -->
     <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-sky-500/20 text-sky-300 text-lg"><i class="fa-solid fa-shield-halved"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">Blue Shell</h3>
+      <div class="text-[11px] text-slate-500 mb-1">Scale AI (Outlier)</div>
+      <p class="text-sm text-slate-400 mt-1 flex-1">OpenClaw capabilities RL toolkit: a two-turn golden/silver pipeline where Turn 1 must fail a rubric trap and a Turn-2 nudge must pass it 100%. Six tools, story → QC.</p>
+      <div class="mt-5 flex gap-2">
+        <a href="workflows.html#blue-shell" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-sky-600 hover:bg-sky-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
+      </div>
+    </div>
+    <!-- Lobster Safety -->
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="150">
+      <div class="flex items-center justify-between mb-3">
+        <div class="h-11 w-11 grid place-items-center rounded-xl bg-rose-500/20 text-rose-300 text-lg"><i class="fa-solid fa-shield-heart"></i></div>
+        <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
+      </div>
+      <h3 class="font-display font-semibold text-white text-lg">Lobster Safety</h3>
+      <div class="text-[11px] text-slate-500 mb-1">Scale AI (Outlier)</div>
+      <p class="text-sm text-slate-400 mt-1 flex-1">OpenClaw Safety RL: nine sequential workers with a hard PASS/STOP gate between each, grading trajectories against the SSOT taxonomy (F1–F10 failures, S0–S3 severity).</p>
+      <div class="mt-5 flex gap-2">
+        <a href="workflows.html#lobster-safety" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600 hover:bg-rose-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
+      </div>
+    </div>
+    <!-- Project Seal Workflow -->
+    <div class="glass rounded-2xl p-6 card-hover flex flex-col" data-aos="fade-up" data-aos-delay="200">
       <div class="flex items-center justify-between mb-3">
         <div class="h-11 w-11 grid place-items-center rounded-xl bg-accent-500/20 text-accent-400 text-lg"><i class="fa-solid fa-magnifying-glass"></i></div>
         <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private</span>
       </div>
       <h3 class="font-display font-semibold text-white text-lg">Project Seal — Authoring</h3>
-      <p class="text-sm text-slate-400 mt-2 flex-1">Runbook for writing hard, single-answer, multi-hop search questions that defeat a strong AI with web search yet stay solvable by a careful researcher. Eight quality rules, 18 techniques.</p>
+      <div class="text-[11px] text-slate-500 mb-1">Handshake AI</div>
+      <p class="text-sm text-slate-400 mt-1 flex-1">Runbook for writing hard, single-answer, multi-hop search questions that defeat a strong AI with web search yet stay solvable by a careful researcher. Eight quality rules, 18 techniques.</p>
       <div class="mt-5 flex gap-2">
         <a href="workflows.html#project-seal" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-accent-500 hover:bg-accent-400 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-eye"></i> View Workflow</a>
       </div>
@@ -281,7 +309,8 @@
         <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-emerald-500/15 text-emerald-300 border border-emerald-400/30"><i class="fa-solid fa-globe text-[9px]"></i> Public</span>
       </div>
       <h3 class="font-display font-semibold text-white text-lg">Project Seal — QC Checker</h3>
-      <p class="text-sm text-slate-400 mt-2 flex-1">An automated QC checker for Project Seal task submissions: runs a task package against the rejection rules before it ships. Live, public tooling.</p>
+      <div class="text-[11px] text-slate-500 mb-1">Handshake AI</div>
+      <p class="text-sm text-slate-400 mt-1 flex-1">An automated QC checker for Project Seal task submissions: runs a task package against the rejection rules before it ships. Live, public tooling.</p>
       <div class="mt-5 flex gap-2">
         <a href="https://pspmani.github.io/project-seal-qc/" target="_blank" rel="noopener" class="flex-1 text-center inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-3 py-2 text-sm font-semibold text-white transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live</a>
         <a href="https://github.com/PSPMANI/project-seal-qc" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl glass px-3 py-2 text-sm font-semibold text-slate-100 transition"><i class="fa-brands fa-github"></i></a>
