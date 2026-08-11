@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Workflows — Pathi Manikanta</title>
+<title>Workflows - Pathi Manikanta</title>
 <meta name="description" content="How Pathi Manikanta's frontier-AI evaluation workflows work: OpenClaw Atlas golden/silver memory-trap pipeline and Project Seal hard-question authoring runbook." />
 <link rel="icon" href="https://github.com/PSPMANI.png" />
 <script src="https://cdn.tailwindcss.com"></script>
@@ -52,7 +52,7 @@
   <div class="max-w-5xl mx-auto px-5 pt-20 pb-12 text-center">
     <p class="text-accent-400 font-mono text-sm mb-3">// how my evaluation systems work</p>
     <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Workflows</h1>
-    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Four workflows I authored for reviewing and building frontier AI. This page explains the <b>process</b> — the underlying task files stay private.</p>
+    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Four workflows I authored for reviewing and building frontier AI. This page explains the <b>process</b> - the underlying task files stay private.</p>
   </div>
 </section>
 
@@ -63,12 +63,12 @@
     <span class="text-xs text-slate-500 font-mono">RL trajectory QC</span>
   </div>
   <h2 class="font-display text-3xl font-bold text-white">OpenClaw Atlas</h2>
-  <p class="text-slate-400 mt-3 max-w-3xl">Every task produces a matched pair of agent runs — a <b class="text-amber-300">golden</b> run that fails on purpose and a <b class="text-emerald-300">silver</b> run that passes — built around one <b>memory trap</b>.</p>
+  <p class="text-slate-400 mt-3 max-w-3xl">Every task produces a matched pair of agent runs - a <b class="text-amber-300">golden</b> run that fails on purpose and a <b class="text-emerald-300">silver</b> run that passes - built around one <b>memory trap</b>.</p>
 
   <!-- the one idea -->
   <div class="glass rounded-2xl p-6 mt-8" data-aos="fade-up">
     <h3 class="font-display font-semibold text-white flex items-center gap-2"><i class="fa-solid fa-lightbulb text-amber-400"></i> The one idea: the memory trap</h3>
-    <p class="text-sm text-slate-400 mt-3">The agent keeps notes in <code class="text-brand-300 font-mono">MEMORY.md</code>. The real, current facts live in the <b>universe</b> snapshot (calendar, email, contacts, fintrack…). A memory trap is a spot where the notes are <b>stale</b> and disagree with the universe. A good agent checks the real source; a weak agent trusts the stale note and commits to the wrong answer. The whole task is engineered around one such trap.</p>
+    <p class="text-sm text-slate-400 mt-3">The agent keeps notes in <code class="text-brand-300 font-mono">MEMORY.md</code>. The real, current facts live in the <b>universe</b> snapshot (calendar, email, contacts, fintrack...). A memory trap is a spot where the notes are <b>stale</b> and disagree with the universe. A good agent checks the real source; a weak agent trusts the stale note and commits to the wrong answer. The whole task is engineered around one such trap.</p>
   </div>
 
   <!-- flow -->
@@ -78,9 +78,9 @@
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">2</div><div class="text-sm font-semibold text-white mt-1">Write story</div><div class="text-[11px] text-slate-500">Story_generator</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">3</div><div class="text-sm font-semibold text-white mt-1">Find the trap</div><div class="text-[11px] text-slate-500">Discrepancy_finder</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">4</div><div class="text-sm font-semibold text-white mt-1">Write prompt</div><div class="text-[11px] text-slate-500">Prompt_generator</div></div>
-    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-amber-400/40"><div class="text-amber-400 text-xs font-mono">5</div><div class="text-sm font-semibold text-white mt-1">Run Model A</div><div class="text-[11px] text-amber-300/80">GOLDEN · fails</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-amber-400/40"><div class="text-amber-400 text-xs font-mono">5</div><div class="text-sm font-semibold text-white mt-1">Run Model A</div><div class="text-[11px] text-amber-300/80">GOLDEN | fails</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">6</div><div class="text-sm font-semibold text-white mt-1">Grade failure</div><div class="text-[11px] text-slate-500">Failure_checker</div></div>
-    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-emerald-400/40"><div class="text-emerald-400 text-xs font-mono">7</div><div class="text-sm font-semibold text-white mt-1">Fix it</div><div class="text-[11px] text-emerald-300/80">SILVER · passes</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-emerald-400/40"><div class="text-emerald-400 text-xs font-mono">7</div><div class="text-sm font-semibold text-white mt-1">Fix it</div><div class="text-[11px] text-emerald-300/80">SILVER | passes</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">8</div><div class="text-sm font-semibold text-white mt-1">Write tests</div><div class="text-[11px] text-slate-500">verifiers.py</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">9</div><div class="text-sm font-semibold text-white mt-1">Justify rubrics</div><div class="text-[11px] text-slate-500">Rubric_justif.</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-brand-400 text-xs font-mono">10</div><div class="text-sm font-semibold text-white mt-1">Final QC</div><div class="text-[11px] text-slate-500">QC_checker</div></div>
@@ -91,7 +91,7 @@
     <div class="glass rounded-2xl p-6 border-l-4 border-amber-400/60" data-aos="fade-right">
       <h4 class="font-display font-semibold text-amber-300">Golden (Model A)</h4>
       <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
-        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Springs the trap — uses the stale note</li>
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Springs the trap - uses the stale note</li>
         <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Commits to the wrong value</li>
         <li><i class="fa-solid fa-folder text-amber-400 w-4"></i> Lands in <code class="font-mono">Golden/</code></li>
       </ul>
@@ -99,7 +99,7 @@
     <div class="glass rounded-2xl p-6 border-l-4 border-emerald-400/60" data-aos="fade-left">
       <h4 class="font-display font-semibold text-emerald-300">Silver (Model B)</h4>
       <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
-        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Turn-2 nudge → re-checks the real source</li>
+        <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Turn-2 nudge -> re-checks the real source</li>
         <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Hits 100% of the Desired Outcome</li>
         <li><i class="fa-solid fa-folder text-emerald-400 w-4"></i> Lands in <code class="font-mono">Silver/</code></li>
       </ul>
@@ -127,25 +127,25 @@
   <div class="flex flex-wrap items-center gap-2 text-sm" data-aos="fade-up">
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Story Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Prompt Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
-    <span class="glass rounded-lg px-3 py-2 font-semibold text-amber-300 ring-1 ring-amber-400/40">Turn 1 · fails ≥50%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-amber-300 ring-1 ring-amber-400/40">Turn 1 | fails >=50%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Failure Checker</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Silver Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
-    <span class="glass rounded-lg px-3 py-2 font-semibold text-emerald-300 ring-1 ring-emerald-400/40">Turn 2 · passes 100%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
+    <span class="glass rounded-lg px-3 py-2 font-semibold text-emerald-300 ring-1 ring-emerald-400/40">Turn 2 | passes 100%</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">Rubric Generator</span><i class="fa-solid fa-arrow-right text-slate-600"></i>
     <span class="glass rounded-lg px-3 py-2 font-semibold text-white">QC Checker</span>
   </div>
 
   <div class="grid sm:grid-cols-2 gap-4 mt-8">
     <div class="glass rounded-2xl p-6 border-l-4 border-amber-400/60" data-aos="fade-right">
-      <h4 class="font-display font-semibold text-amber-300">Turn 1 — Model A</h4>
+      <h4 class="font-display font-semibold text-amber-300">Turn 1 - Model A</h4>
       <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
         <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Runs the prompt unguided</li>
-        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Must fail ≥ 50% of the rubric</li>
+        <li><i class="fa-solid fa-xmark text-amber-400 w-4"></i> Must fail >= 50% of the rubric</li>
         <li><i class="fa-solid fa-rotate-left text-amber-400 w-4"></i> Too weak? Regenerate a harder prompt</li>
       </ul>
     </div>
     <div class="glass rounded-2xl p-6 border-l-4 border-emerald-400/60" data-aos="fade-left">
-      <h4 class="font-display font-semibold text-emerald-300">Turn 2 — Model B</h4>
+      <h4 class="font-display font-semibold text-emerald-300">Turn 2 - Model B</h4>
       <ul class="text-sm text-slate-400 mt-3 space-y-1.5">
         <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Seed restored + silver nudges applied</li>
         <li><i class="fa-solid fa-check text-emerald-400 w-4"></i> Must pass 100% (monotonic gain)</li>
@@ -173,7 +173,7 @@
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">3</div><div class="text-sm font-semibold text-white mt-1">Story Draft</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">4</div><div class="text-sm font-semibold text-white mt-1">Design Gate</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center ring-1 ring-rose-400/50"><div class="text-rose-300 text-xs font-mono">5</div><div class="text-sm font-semibold text-white mt-1">Execution</div><div class="text-[10px] text-rose-300/80">only acting worker</div></div>
-    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">6</div><div class="text-sm font-semibold text-white mt-1">Trajectory Eval</div><div class="text-[10px] text-slate-500">F1–F10 · S0–S3</div></div>
+    <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">6</div><div class="text-sm font-semibold text-white mt-1">Trajectory Eval</div><div class="text-[10px] text-slate-500">F1-F10 | S0-S3</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">7</div><div class="text-sm font-semibold text-white mt-1">Rubric Builder</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">8</div><div class="text-sm font-semibold text-white mt-1">Unit Tests</div></div>
     <div class="flowbox glass rounded-xl p-3 text-center"><div class="text-rose-400 text-xs font-mono">9</div><div class="text-sm font-semibold text-white mt-1">Final QC</div></div>
@@ -187,8 +187,8 @@
 
   <h3 class="font-display font-semibold text-white mt-8 mb-4 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-rose-400"></i> The SSOT safety taxonomy</h3>
   <div class="grid sm:grid-cols-2 gap-3" data-aos="fade-up">
-    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Failure categories · F1–F10</b><p class="text-xs text-slate-400 mt-2 leading-relaxed">Scope & Authority · Escalation & Judgment · Privacy & Data · Credential & Security · Injection & Robustness · Honesty & Transparency · Behavioral · Multi-Agent · Safety & Legal · Over-Caution.</p></div>
-    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Severity · S0–S3</b><p class="text-xs text-slate-400 mt-2 leading-relaxed"><b class="text-rose-300">S0</b> critical / irreversible · <b class="text-amber-300">S1</b> severe but recoverable · <b class="text-yellow-300">S2</b> moderate / correctable · <b class="text-emerald-300">S3</b> low / tolerable. Every finding cites concrete quotes and timestamps.</p></div>
+    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Failure categories | F1-F10</b><p class="text-xs text-slate-400 mt-2 leading-relaxed">Scope & Authority | Escalation & Judgment | Privacy & Data | Credential & Security | Injection & Robustness | Honesty & Transparency | Behavioral | Multi-Agent | Safety & Legal | Over-Caution.</p></div>
+    <div class="glass rounded-xl p-4"><b class="text-white text-sm">Severity | S0-S3</b><p class="text-xs text-slate-400 mt-2 leading-relaxed"><b class="text-rose-300">S0</b> critical / irreversible | <b class="text-amber-300">S1</b> severe but recoverable | <b class="text-yellow-300">S2</b> moderate / correctable | <b class="text-emerald-300">S3</b> low / tolerable. Every finding cites concrete quotes and timestamps.</p></div>
   </div>
 </section>
 
@@ -200,14 +200,14 @@
     <span class="text-[11px] font-semibold rounded-full px-2.5 py-1 bg-amber-500/15 text-amber-300 border border-amber-400/30"><i class="fa-solid fa-lock text-[9px]"></i> Private repo</span>
     <span class="text-xs text-slate-500 font-mono">hard-question authoring</span>
   </div>
-  <h2 class="font-display text-3xl font-bold text-white">Project Seal — Authoring Workflow</h2>
+  <h2 class="font-display text-3xl font-bold text-white">Project Seal - Authoring Workflow</h2>
   <p class="text-slate-400 mt-3 max-w-3xl">A runbook for writing <b>hard, single-answer search questions</b>. Each needs several sources and several hops, has exactly one short answer, and defeats a strong AI with web search while staying solvable by a careful researcher who follows the steps.</p>
 
   <div class="grid md:grid-cols-3 gap-4 mt-8">
     <div class="glass rounded-2xl p-5" data-aos="fade-up">
       <div class="text-brand-400 text-2xl"><i class="fa-solid fa-crosshairs"></i></div>
       <h4 class="font-display font-semibold text-white mt-3">Difficulty is the final read</h4>
-      <p class="text-sm text-slate-400 mt-2">A strong AI searches and follows clues well. It breaks at the last step — the moment it must read one exact fact. Engineer that final read; the chain exists to stop a one-search win.</p>
+      <p class="text-sm text-slate-400 mt-2">A strong AI searches and follows clues well. It breaks at the last step - the moment it must read one exact fact. Engineer that final read; the chain exists to stop a one-search win.</p>
     </div>
     <div class="glass rounded-2xl p-5" data-aos="fade-up" data-aos-delay="100">
       <div class="text-accent-400 text-2xl"><i class="fa-solid fa-clipboard-check"></i></div>
@@ -238,14 +238,14 @@
   <!-- eight rules -->
   <h3 class="font-display font-semibold text-white mt-10 mb-4 flex items-center gap-2"><i class="fa-solid fa-list-check text-brand-400"></i> The eight quality rules <span class="text-xs font-normal text-slate-500">(all must be True)</span></h3>
   <div class="grid sm:grid-cols-2 gap-3" data-aos="fade-up">
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">1 · Requires search</b><p class="text-sm text-slate-400 mt-1">Cannot be answered from common knowledge.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">2 · No shortcuts</b><p class="text-sm text-slate-400 mt-1">The wording does not leak or hint at the answer.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">3 · No external references</b><p class="text-sm text-slate-400 mt-1">Self-contained; no tables, images, or attachments.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">4 · Multi-hop</b><p class="text-sm text-slate-400 mt-1">Several sources and several reasoning hops to reach the answer.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">5 · One short answer</b><p class="text-sm text-slate-400 mt-1">Exactly one name, place, date, number, title, or event.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">6 · Verifiable</b><p class="text-sm text-slate-400 mt-1">Confirmable against an independent primary source.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">7 · Defeats a strong AI</b><p class="text-sm text-slate-400 mt-1">2–3 confident wrong answers from the model, not refusals.</p></div>
-    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">8 · Solvable by a human</b><p class="text-sm text-slate-400 mt-1">A careful researcher following the steps can still get it.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">1 | Requires search</b><p class="text-sm text-slate-400 mt-1">Cannot be answered from common knowledge.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">2 | No shortcuts</b><p class="text-sm text-slate-400 mt-1">The wording does not leak or hint at the answer.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">3 | No external references</b><p class="text-sm text-slate-400 mt-1">Self-contained; no tables, images, or attachments.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">4 | Multi-hop</b><p class="text-sm text-slate-400 mt-1">Several sources and several reasoning hops to reach the answer.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">5 | One short answer</b><p class="text-sm text-slate-400 mt-1">Exactly one name, place, date, number, title, or event.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">6 | Verifiable</b><p class="text-sm text-slate-400 mt-1">Confirmable against an independent primary source.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">7 | Defeats a strong AI</b><p class="text-sm text-slate-400 mt-1">2-3 confident wrong answers from the model, not refusals.</p></div>
+    <div class="step glass rounded-xl p-4 border-l-2 border-brand-500/60"><b class="text-white">8 | Solvable by a human</b><p class="text-sm text-slate-400 mt-1">A careful researcher following the steps can still get it.</p></div>
   </div>
 
   <div class="mt-8">
@@ -256,7 +256,7 @@
 <footer class="border-t border-white/5 mt-6">
   <div class="max-w-5xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
     <a href="index.html" class="hover:text-accent-400 transition"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
-    <p class="font-mono text-xs">© <span id="yr"></span> Pathi Manikanta</p>
+    <p class="font-mono text-xs">(c) <span id="yr"></span> Pathi Manikanta</p>
   </div>
 </footer>
 
