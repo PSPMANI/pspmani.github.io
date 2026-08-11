@@ -480,6 +480,11 @@
 
   // Projects (rendered from data)
   const projects = [
+    { title:"Customer Churn Predictor", vis:"Public", icon:"fa-chart-line", color:"brand",
+      desc:"End-to-end ML app predicting telecom customer churn (ROC-AUC 0.843) on 7,000+ customers. Gradient Boosting pipeline deployed as an interactive Streamlit app with live risk scoring and retention recommendations.",
+      meta:"Personal Project · 2026", tech:["Python","scikit-learn","Streamlit"],
+      url:"https://github.com/PSPMANI/customer-churn-predictor",
+      live:"https://customer-churn-predictor-xndnwqzrpb9fduv8rtee3y.streamlit.app/" },
     { title:"Diabetes Foot Pressure Detection", vis:"Public", icon:"fa-shoe-prints", color:"brand",
       desc:"Full ML pipeline from Arduino sensors to classifiers at 92.5% accuracy. Identified and resolved a data-leakage issue.",
       meta:"Final-Year B.E. Project · 2025", tech:["Arduino","MATLAB","scikit-learn","Keras"],
@@ -520,7 +525,10 @@
       <div class="flex flex-wrap gap-1.5 mt-4">${p.tech.map(t=>`<span class="text-[11px] font-mono rounded-md px-2 py-0.5 bg-white/5 text-slate-300">${t}</span>`).join('')}</div>
       <div class="flex items-center justify-between mt-5">
         <span class="text-xs text-slate-500">${p.meta}</span>
-        <a href="${p.url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-accent-400 transition">Code <i class="fa-brands fa-github"></i></a>
+        <div class="flex items-center gap-3">
+          ${p.live?`<a href="${p.live}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition">Live <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>`:''}
+          <a href="${p.url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-accent-400 transition">Code <i class="fa-brands fa-github"></i></a>
+        </div>
       </div>
     </div>`).join('');
 </script>
