@@ -3,307 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pathi Manikanta - AI Evaluation Specialist / ML Engineer</title>
+<title>Pathi Manikanta - AI Evaluation Specialist and ML Engineer</title>
 <meta name="description" content="Pathi Manikanta - AI Evaluation Specialist, ML Engineer, RLHF/RLAIF. Building and evaluating frontier AI, with proof.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
-    --cream:#f4f1e9;
-    --ink:#111111;
-    --lime:#c6ff00;
-    --pink:#ff4d8d;
-    --blue:#2d5bff;
-    --white:#ffffff;
-    --shadow:6px 6px 0 var(--ink);
-    --shadow-lg:10px 10px 0 var(--ink);
-    --border:3px solid var(--ink);
+    --bg:#08090b;
+    --bg-2:#0d0e11;
+    --card:#141519;
+    --card-2:#181a1f;
+    --border:#23262e;
+    --border-soft:#1c1e24;
+    --text:#f4f5f7;
+    --muted:#9aa0ab;
+    --muted-2:#71767f;
+    --accent:#c6ff4d;
+    --accent-2:#a7e635;
+    --accent-ink:#0c1400;
+    --radius:22px;
+    --radius-sm:14px;
+    --shadow:0 1px 0 rgba(255,255,255,0.03) inset, 0 18px 40px -20px rgba(0,0,0,0.8);
+    --gap:18px;
+    --maxw:1220px;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
-    font-family:'Space Grotesk',sans-serif;
-    background:var(--cream);
-    color:var(--ink);
-    line-height:1.5;
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.02;letter-spacing:-0.01em;}
-  a{color:inherit;text-decoration:none;}
-  .mono{font-family:'Space Mono',monospace;}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-  .label{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    text-transform:uppercase;
-    font-size:12px;
-    letter-spacing:0.12em;
-    background:var(--ink);
-    color:var(--cream);
-    padding:4px 10px;
-    display:inline-block;
-    border:2px solid var(--ink);
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(60vw 40vw at 78% -8%, rgba(198,255,77,0.10), transparent 60%),
+      radial-gradient(50vw 40vw at 5% 8%, rgba(120,150,255,0.06), transparent 55%),
+      var(--bg);
   }
-  .tag{
-    font-family:'Space Mono',monospace;
-    font-weight:700;
-    text-transform:uppercase;
-    font-size:11px;
-    letter-spacing:0.08em;
-    padding:3px 8px;
-    border:2px solid var(--ink);
-    display:inline-block;
-    background:var(--white);
-  }
-  .tag.priv{background:var(--pink);color:var(--ink);}
-  .tag.pub{background:var(--lime);color:var(--ink);}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-0.02em;line-height:1.1}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
 
   /* NAV */
   nav{
     position:sticky;top:0;z-index:100;
-    background:var(--cream);
-    border-bottom:var(--border);
+    backdrop-filter:blur(14px);
+    background:rgba(8,9,11,0.72);
+    border-bottom:1px solid var(--border-soft);
   }
-  .nav-in{
-    max-width:1200px;margin:0 auto;padding:12px 24px;
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
   }
-  .brand{
-    font-family:'Archivo Black',sans-serif;
-    font-size:20px;
-    display:flex;align-items:center;gap:10px;
-  }
-  .brand .dot{
-    width:16px;height:16px;background:var(--lime);
-    border:2px solid var(--ink);display:inline-block;
-  }
-  .nav-links{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:1.02rem}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+  .nav-links{display:flex;gap:6px;align-items:center}
   .nav-links a{
-    font-family:'Space Mono',monospace;
-    font-weight:700;font-size:13px;text-transform:uppercase;
-    padding:6px 10px;border:2px solid transparent;
-    transition:all .12s ease;
+    color:var(--muted);font-size:0.86rem;font-weight:500;padding:8px 12px;border-radius:10px;transition:.2s;
   }
-  .nav-links a:hover{border:2px solid var(--ink);background:var(--lime);}
-  .nav-toggle{
-    display:none;background:var(--lime);border:var(--border);
-    padding:8px 12px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);
-    font-size:18px;
+  .nav-links a:hover{color:var(--text);background:var(--card-2)}
+  .nav-cta{
+    background:var(--accent);color:var(--accent-ink)!important;font-weight:700;
+    padding:9px 16px!important;border-radius:11px!important;
   }
-  .nav-avail{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'Space Mono',monospace;font-weight:700;font-size:12px;
-    text-transform:uppercase;background:var(--lime);
-    border:2px solid var(--ink);padding:6px 10px;
-  }
-  .blink{width:9px;height:9px;border-radius:50%;background:var(--ink);animation:blink 1.1s steps(1) infinite;}
-  @keyframes blink{50%{opacity:0.15;}}
+  .nav-cta:hover{background:var(--accent-2)!important}
+  .burger{display:none;background:none;border:1px solid var(--border);color:var(--text);width:42px;height:42px;border-radius:11px;font-size:1.1rem;cursor:pointer}
 
-  /* BUTTONS */
-  .btn{
-    font-family:'Space Mono',monospace;font-weight:700;
-    text-transform:uppercase;font-size:14px;letter-spacing:0.03em;
-    padding:12px 18px;border:var(--border);background:var(--white);
-    color:var(--ink);
-    box-shadow:var(--shadow);cursor:pointer;display:inline-flex;
-    align-items:center;gap:9px;transition:transform .1s ease,box-shadow .1s ease;
-  }
-  .btn:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink);}
-  .btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink);}
-  .btn.lime{background:var(--lime);}
-  .btn.pink{background:var(--pink);}
-  .btn.blue{background:var(--blue);color:var(--white);}
-  .btn.ink{background:var(--ink);color:var(--cream);}
+  /* LAYOUT */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{padding:52px 0 8px}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .sec-head .eyebrow{color:var(--accent-2);font-weight:600;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-top:6px}
+  .sec-head p{color:var(--muted);font-size:0.92rem;max-width:520px}
 
-  /* SECTION HEADERS */
-  section{padding:80px 0;border-bottom:var(--border);}
-  .sec-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
-  .sec-head h2{font-size:clamp(32px,5vw,60px);text-transform:uppercase;}
-  .sec-num{
-    font-family:'Space Mono',monospace;font-weight:700;font-size:14px;
-    background:var(--ink);color:var(--cream);padding:6px 10px;
-    border:2px solid var(--ink);align-self:flex-start;
+  /* BENTO GRID */
+  .bento{
+    display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);
   }
+  .tile{
+    background:linear-gradient(180deg,var(--card-2),var(--card));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:var(--shadow);
+    position:relative;
+    transition:transform .28s cubic-bezier(.2,.7,.2,1), border-color .28s, box-shadow .28s;
+    overflow:hidden;
+  }
+  .tile:hover{transform:translateY(-4px);border-color:#33373f;box-shadow:0 1px 0 rgba(255,255,255,0.04) inset,0 26px 50px -22px rgba(0,0,0,0.85)}
+  .col-3{grid-column:span 3}
+  .col-4{grid-column:span 4}
+  .col-5{grid-column:span 5}
+  .col-6{grid-column:span 6}
+  .col-7{grid-column:span 7}
+  .col-8{grid-column:span 8}
+  .col-12{grid-column:span 12}
+  .row-2{grid-row:span 2}
 
   /* HERO */
-  .hero{
-    padding:60px 0 80px;
-    background:
-      repeating-linear-gradient(45deg,transparent,transparent 22px,rgba(17,17,17,0.035) 22px,rgba(17,17,17,0.035) 24px);
-    border-bottom:var(--border);
+  .hero-tile{display:flex;flex-direction:column;justify-content:center;min-height:340px;padding:38px}
+  .hero-tile::after{
+    content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(198,255,77,0.16),transparent 68%);pointer-events:none;
   }
-  .hero-grid{display:grid;grid-template-columns:1.4fr 0.9fr;gap:40px;align-items:start;}
-  .hero h1{font-size:clamp(44px,8vw,96px);text-transform:uppercase;margin:18px 0 12px;}
-  .hero h1 .hl{background:var(--lime);padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
-  .tagline{
-    font-size:clamp(18px,2.4vw,26px);font-weight:700;
-    border-left:6px solid var(--pink);padding-left:14px;margin-bottom:20px;
+  .otw{
+    display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+    background:rgba(198,255,77,0.10);border:1px solid rgba(198,255,77,0.35);
+    color:var(--accent);font-weight:600;font-size:0.8rem;padding:7px 14px;border-radius:999px;margin-bottom:20px;
   }
-  .intro{font-size:17px;max-width:620px;margin-bottom:26px;}
-  .roles-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
-  .hero-card{
-    border:var(--border);background:var(--white);box-shadow:var(--shadow-lg);
-    padding:0;overflow:hidden;
+  .otw .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);position:relative}
+  .otw .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--accent);animation:ping 1.8s ease-out infinite}
+  @keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+  .hero-tile h1{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:8px}
+  .hero-tile .tag{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--accent-2);font-family:'Space Grotesk';font-weight:600;margin-bottom:16px}
+  .hero-tile .intro{color:var(--muted);max-width:640px;font-size:0.98rem;margin-bottom:26px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:11px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:12px;
+    font-weight:600;font-size:0.9rem;border:1px solid var(--border);background:var(--card-2);color:var(--text);
+    transition:.2s;cursor:pointer;
   }
-  .hero-card .portrait{
-    width:100%;display:block;border-bottom:var(--border);
-    background:var(--lime);aspect-ratio:1/1;object-fit:cover;
-  }
-  .hero-card .card-foot{padding:16px;display:flex;flex-direction:column;gap:8px;}
-  .hero-card .card-foot .row{
-    display:flex;justify-content:space-between;font-family:'Space Mono',monospace;
-    font-size:13px;font-weight:700;border-bottom:2px dashed var(--ink);padding-bottom:6px;
-  }
-  .hero-card .card-foot .row:last-child{border-bottom:none;}
+  .btn i{font-size:0.95rem}
+  .btn:hover{border-color:#40454f;transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+  .btn.primary:hover{background:var(--accent-2)}
+
+  .hero-side{display:flex;flex-direction:column;gap:var(--gap)}
+  .portrait-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;flex:1}
+  .portrait-tile img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid var(--border);box-shadow:0 0 0 5px rgba(198,255,77,0.08)}
+  .portrait-tile .role{font-size:0.82rem;color:var(--muted);font-weight:500}
+  .portrait-tile .name{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
+  .mini-tile{display:flex;flex-direction:column;gap:4px}
+  .mini-tile .k{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;color:var(--accent)}
+  .mini-tile .l{font-size:0.78rem;color:var(--muted)}
 
   /* STATS */
-  .stats{background:var(--ink);border-bottom:var(--border);padding:0;}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
-  .stat{
-    padding:34px 22px;text-align:left;border-right:3px solid var(--cream);
-    color:var(--cream);
-  }
-  .stat:last-child{border-right:none;}
-  .stat .n{font-family:'Archivo Black',sans-serif;font-size:clamp(34px,4vw,52px);color:var(--lime);line-height:1;}
-  .stat .t{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;margin-top:8px;letter-spacing:0.06em;}
+  .stat-tile{display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:120px}
+  .stat-tile .num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.8rem,3vw,2.5rem);color:var(--text)}
+  .stat-tile .num b{color:var(--accent)}
+  .stat-tile .lab{font-size:0.82rem;color:var(--muted)}
 
   /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;}
-  .card{
-    border:var(--border);background:var(--white);box-shadow:var(--shadow);padding:26px;
-  }
-  .card p{margin-bottom:14px;}
-  .fin-card{background:var(--lime);}
-  .fin-card h3{font-size:22px;text-transform:uppercase;margin-bottom:16px;}
-  .fin-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
-  .fin-list li{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:2px solid var(--ink);padding:10px 12px;box-shadow:3px 3px 0 var(--ink);}
-  .fin-list li i{margin-top:3px;}
-  .fin-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
-  .fin-badges .tag{background:var(--ink);color:var(--cream);}
-  .lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;}
+  .about-body p{color:var(--muted);margin-bottom:14px;font-size:0.96rem}
+  .about-body strong{color:var(--text)}
+  .lang-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .chip{background:var(--bg-2);border:1px solid var(--border);border-radius:999px;padding:6px 13px;font-size:0.8rem;color:var(--muted)}
+  .finance-tile{background:linear-gradient(160deg,rgba(198,255,77,0.07),var(--card));border-color:rgba(198,255,77,0.22)}
+  .finance-tile h3{font-size:1.12rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .finance-tile h3 i{color:var(--accent)}
+  .badge-line{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border-soft);font-size:0.9rem}
+  .badge-line:last-child{border-bottom:none}
+  .badge-line i{color:var(--accent);width:20px;text-align:center}
+  .badge-line .hl{background:rgba(198,255,77,0.14);color:var(--accent);font-weight:700;padding:2px 9px;border-radius:7px;font-size:0.8rem}
+  .badge-line span.t{color:var(--muted)}
 
   /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .skill-block{border:var(--border);background:var(--white);box-shadow:var(--shadow);padding:20px;transition:transform .1s ease,box-shadow .1s ease;}
-  .skill-block:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink);}
-  .skill-block h4{font-size:16px;text-transform:uppercase;margin-bottom:14px;border-bottom:3px solid var(--ink);padding-bottom:8px;}
-  .chips{display:flex;gap:7px;flex-wrap:wrap;}
-  .chip{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;border:2px solid var(--ink);padding:4px 8px;background:var(--cream);}
-  .chip:nth-child(3n){background:var(--lime);}
-  .chip:nth-child(4n){background:var(--pink);}
+  .skill-group{margin-bottom:16px}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-group .gt{font-size:0.76rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted-2);margin-bottom:9px;font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tags .chip{transition:.18s}
+  .tags .chip:hover{border-color:var(--accent);color:var(--accent)}
 
-  /* EVAL / PROJECTS */
-  .eval-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-  .eval-card{
-    border:var(--border);background:var(--white);box-shadow:var(--shadow);
-    padding:22px;display:flex;flex-direction:column;gap:12px;
-    transition:transform .1s ease,box-shadow .1s ease;
-  }
-  .eval-card:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--ink);}
-  .eval-card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap;}
-  .eval-card h3{font-size:22px;text-transform:uppercase;}
-  .eval-card .src{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;opacity:0.7;}
-  .eval-card p{font-size:15px;flex-grow:1;}
-  .eval-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
-  .link-btn{
-    font-family:'Space Mono',monospace;font-weight:700;font-size:12px;text-transform:uppercase;
-    border:2px solid var(--ink);padding:7px 11px;background:var(--cream);
-    box-shadow:3px 3px 0 var(--ink);transition:transform .1s ease,box-shadow .1s ease;display:inline-flex;gap:6px;align-items:center;
-  }
-  .link-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);background:var(--lime);}
+  /* EVAL + PROJECTS CARDS */
+  .card-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+  .proj{display:flex;flex-direction:column;gap:12px;min-height:200px}
+  .proj .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .proj h3{font-size:1.12rem}
+  .proj p{color:var(--muted);font-size:0.9rem;flex:1}
+  .label{font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:7px;white-space:nowrap}
+  .label.private{background:rgba(255,120,120,0.12);color:#ff9d9d;border:1px solid rgba(255,120,120,0.28)}
+  .label.public{background:rgba(198,255,77,0.12);color:var(--accent);border:1px solid rgba(198,255,77,0.3)}
+  .org{font-size:0.76rem;color:var(--muted-2);font-weight:500}
+  .link-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+  .lnk{display:inline-flex;align-items:center;gap:7px;font-size:0.82rem;font-weight:600;color:var(--accent);padding:7px 12px;border:1px solid var(--border);border-radius:10px;transition:.2s}
+  .lnk:hover{background:rgba(198,255,77,0.08);border-color:rgba(198,255,77,0.35);transform:translateY(-2px)}
+  .lnk.muted{color:var(--muted)}
+  .lnk.muted:hover{color:var(--text);background:var(--card-2);border-color:#3a3f48}
+  .tech-row{display:flex;flex-wrap:wrap;gap:6px}
+  .tech{font-size:0.72rem;color:var(--muted-2);background:var(--bg-2);border:1px solid var(--border-soft);padding:3px 9px;border-radius:6px}
 
   /* FILTER */
-  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-  .filter-btn{
-    font-family:'Space Mono',monospace;font-weight:700;font-size:13px;text-transform:uppercase;
-    border:var(--border);padding:9px 14px;background:var(--white);cursor:pointer;
-    box-shadow:3px 3px 0 var(--ink);transition:all .1s ease;
+  .filter-row{display:flex;flex-wrap:wrap;gap:8px}
+  .fbtn{
+    background:var(--card-2);border:1px solid var(--border);color:var(--muted);
+    padding:8px 15px;border-radius:999px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:.2s;
   }
-  .filter-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);}
-  .filter-btn.active{background:var(--ink);color:var(--cream);}
-  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .proj-card{
-    border:var(--border);background:var(--white);box-shadow:var(--shadow);
-    padding:20px;display:flex;flex-direction:column;gap:12px;
-    transition:transform .1s ease,box-shadow .1s ease;
-  }
-  .proj-card:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--ink);}
-  .proj-card .cat{align-self:flex-start;}
-  .proj-card h3{font-size:19px;text-transform:uppercase;}
-  .proj-card p{font-size:14px;flex-grow:1;}
-  .proj-tech{display:flex;gap:6px;flex-wrap:wrap;}
-  .proj-tech .chip{font-size:11px;}
-  .is-hidden{display:none !important;}
+  .fbtn:hover{color:var(--text);border-color:#3a3f48}
+  .fbtn.active{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+  .proj.hide{display:none}
 
-  /* EXPERIENCE + EDU */
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  .timeline{display:flex;flex-direction:column;gap:18px;}
-  .tl-item{border-left:4px solid var(--ink);padding-left:18px;position:relative;}
-  .tl-item::before{content:"";position:absolute;left:-11px;top:2px;width:16px;height:16px;background:var(--pink);border:3px solid var(--ink);}
-  .tl-item h4{font-size:18px;text-transform:uppercase;}
-  .tl-item .meta{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;margin:4px 0 6px;}
-  .cert-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
-  .cert-list li{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--ink);background:var(--white);padding:10px 12px;box-shadow:3px 3px 0 var(--ink);font-size:14px;}
-  .cert-list li i{color:var(--ink);margin-top:3px;}
+  /* EXPERIENCE / EDUCATION */
+  .exp-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border-soft)}
+  .exp-item:last-child{border-bottom:none;padding-bottom:0}
+  .exp-item:first-child{padding-top:0}
+  .exp-dot{flex-shrink:0;width:38px;height:38px;border-radius:11px;background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .exp-item h4{font-size:1rem}
+  .exp-item .meta{font-size:0.8rem;color:var(--muted-2);margin:2px 0 6px}
+  .exp-item p{font-size:0.88rem;color:var(--muted)}
+  .cert-line{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border-soft);font-size:0.88rem;color:var(--muted)}
+  .cert-line:last-child{border-bottom:none}
+  .cert-line i{color:var(--accent);margin-top:3px}
+  .cert-line b{color:var(--text);font-weight:600}
 
   /* CONTACT */
-  .contact{background:var(--lime);}
-  .contact .sec-head h2{}
-  .contact-box{border:var(--border);background:var(--ink);color:var(--cream);box-shadow:var(--shadow-lg);padding:40px;text-align:center;}
-  .contact-box h3{font-size:clamp(28px,4vw,44px);text-transform:uppercase;color:var(--cream);margin-bottom:14px;}
-  .contact-box p{max-width:560px;margin:0 auto 24px;font-size:17px;}
-  .contact-box .cta-row{justify-content:center;}
-  .contact-avail{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;text-transform:uppercase;background:var(--lime);color:var(--ink);border:2px solid var(--cream);padding:6px 12px;margin-bottom:20px;}
-  .contact-box .blink{background:var(--lime);}
+  .contact-tile{text-align:center;padding:44px 26px}
+  .contact-tile h2{font-size:clamp(1.7rem,3.5vw,2.6rem);margin-bottom:12px}
+  .contact-tile p{color:var(--muted);max-width:520px;margin:0 auto 24px}
+  .contact-tile .cta-row{justify-content:center}
 
   /* FOOTER */
-  footer{background:var(--ink);color:var(--cream);padding:40px 0;}
-  .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
-  .foot-in .brand{color:var(--cream);}
-  .foot-in .brand .dot{background:var(--lime);}
-  .foot-social{display:flex;gap:10px;}
-  .foot-social a{width:44px;height:44px;border:2px solid var(--cream);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .12s ease;}
-  .foot-social a:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:translate(-2px,-2px);}
-  .foot-note{font-family:'Space Mono',monospace;font-size:12px;opacity:0.75;width:100%;text-align:center;margin-top:24px;text-transform:uppercase;letter-spacing:0.04em;}
+  footer{border-top:1px solid var(--border-soft);margin-top:52px;padding:28px 0}
+  .foot-inner{max-width:var(--maxw);margin:0 auto;padding:0 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot-inner .fbrand{font-family:'Space Grotesk';font-weight:700}
+  .foot-links{display:flex;gap:14px}
+  .foot-links a{color:var(--muted);font-size:1.05rem;transition:.2s}
+  .foot-links a:hover{color:var(--accent);transform:translateY(-2px)}
+  .foot-inner small{color:var(--muted-2);font-size:0.78rem}
 
   /* REVEAL */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
-  .reveal.in{opacity:1;transform:none;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
 
   /* RESPONSIVE */
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-card{max-width:360px;}
-    .about-grid,.two-col{grid-template-columns:1fr;}
-    .skills-grid,.proj-grid{grid-template-columns:repeat(2,1fr);}
-    .eval-grid{grid-template-columns:1fr;}
-    .stats-grid{grid-template-columns:repeat(2,1fr);}
-    .stat:nth-child(2){border-right:none;}
-    .stat:nth-child(1),.stat:nth-child(2){border-bottom:3px solid var(--cream);}
+  @media(max-width:900px){
+    .col-3,.col-4,.col-5{grid-column:span 6}
+    .col-7,.col-8{grid-column:span 12}
+    .col-6{grid-column:span 12}
+    .hero-tile{min-height:auto}
   }
-  @media (max-width:640px){
-    section{padding:56px 0;}
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:var(--border);flex-direction:column;align-items:stretch;padding:12px 24px;gap:8px;}
-    .nav-links.open{display:flex;}
-    .nav-links a{border:2px solid var(--ink);text-align:center;}
-    .nav-toggle{display:block;}
-    .nav-avail{display:none;}
-    .skills-grid,.proj-grid{grid-template-columns:1fr;}
-    .cta-row .btn{flex:1 1 auto;justify-content:center;}
-    .foot-in{flex-direction:column;text-align:center;}
+  @media(max-width:640px){
+    .nav-links{display:none}
+    .burger{display:inline-flex;align-items:center;justify-content:center}
+    .nav-links.open{display:flex;position:absolute;top:66px;left:14px;right:14px;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px}
+    .nav-links.open a{width:100%}
+    section{padding:38px 0 6px}
+    .col-3,.col-4,.col-5,.col-6,.col-7,.col-8{grid-column:span 12}
+    .row-2{grid-row:auto}
+    .tile{padding:22px}
+    .hero-tile{padding:26px}
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-in">
-    <a href="#top" class="brand"><span class="dot"></span>PATHI M.</a>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span> Pathi Manikanta</a>
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -311,456 +264,421 @@
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </div>
-    <span class="nav-avail"><span class="blink"></span>Open to Work</span>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <button class="burger" id="burger" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="nav-avail" style="margin-bottom:10px;"><span class="blink"></span>Open to Work - Available Now</span>
-        <div class="roles-row" style="margin-top:14px;">
-          <span class="label">AI Evaluation Specialist</span>
-          <span class="label">ML Engineer</span>
-          <span class="label">RLHF / RLAIF</span>
-        </div>
-        <h1>PATHI <span class="hl">MANIKANTA</span></h1>
-        <p class="tagline">Building and evaluating frontier AI, with proof.</p>
-        <p class="intro">I audit agentic tool-use trajectories, design pass/fail rubrics and pytest verifiers, and build end-to-end ML systems. I care about where a model breaks and how you prove it.</p>
+<div class="wrap" id="top">
+
+  <!-- HERO -->
+  <section style="padding-top:34px">
+    <div class="bento">
+      <div class="tile hero-tile col-8 reveal">
+        <span class="otw"><span class="pulse"></span> Open to work - now job searching</span>
+        <h1>Pathi Manikanta</h1>
+        <div class="tag">Building and evaluating frontier AI, with proof.</div>
+        <p class="intro">AI Evaluation Specialist, ML Engineer and RLHF/RLAIF contributor. I audit agentic tool-use trajectories, design pass/fail rubrics and pytest verifiers, and build end-to-end ML systems. I care about where a model breaks and how you prove it.</p>
         <div class="cta-row">
-          <a class="btn lime" href="Pathi_Manikanta_Resume.pdf"><i class="fa-solid fa-download"></i> Download Resume</a>
+          <a class="btn primary" href="Pathi_Manikanta_Resume.pdf"><i class="fa-solid fa-download"></i> Download Resume</a>
           <a class="btn" href="mailto:pmanikanta818@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
           <a class="btn" href="https://github.com/PSPMANI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a class="btn blue" href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="btn" href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
         </div>
       </div>
-      <div class="hero-card">
-        <img class="portrait" src="https://github.com/PSPMANI.png" alt="Pathi Manikanta portrait" loading="lazy">
-        <div class="card-foot">
-          <div class="row"><span>ROLE</span><span>AI EVAL / ML</span></div>
-          <div class="row"><span>BASE</span><span>ANDHRA PRADESH, IN</span></div>
-          <div class="row"><span>REMOTE</span><span>YES / RELOCATE</span></div>
-          <div class="row"><span>REPLY</span><span>FASTEST BY EMAIL</span></div>
+
+      <div class="hero-side col-4">
+        <div class="tile portrait-tile reveal">
+          <img src="https://github.com/PSPMANI.png" alt="Pathi Manikanta portrait">
+          <div>
+            <div class="name">Pathi Manikanta</div>
+            <div class="role">AI Evaluation / ML Engineer / RLHF-RLAIF</div>
+          </div>
+        </div>
+        <div class="tile mini-tile reveal">
+          <div class="k">97.8%</div>
+          <div class="l">Best model accuracy shipped</div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stats-grid">
-    <div class="stat"><div class="n">50+</div><div class="t">Pass/Fail Rubrics Authored</div></div>
-    <div class="stat"><div class="n">100+</div><div class="t">Agentic Trajectories Audited</div></div>
-    <div class="stat"><div class="n">10+</div><div class="t">Projects Shipped</div></div>
-    <div class="stat"><div class="n">97.8%</div><div class="t">Best Model Accuracy</div></div>
-  </div>
+  <!-- STATS -->
+  <section>
+    <div class="bento">
+      <div class="tile stat-tile col-3 reveal"><div class="num"><b>50+</b></div><div class="lab">Pass/fail rubrics authored</div></div>
+      <div class="tile stat-tile col-3 reveal"><div class="num"><b>100+</b></div><div class="lab">Agentic trajectories audited</div></div>
+      <div class="tile stat-tile col-3 reveal"><div class="num"><b>10+</b></div><div class="lab">Projects shipped</div></div>
+      <div class="tile stat-tile col-3 reveal"><div class="num"><b>4+</b> yrs</div><div class="lab">Trading crypto and Indian equities</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">About</div>
+        <h2>Evaluation, engineering, and taxation</h2>
+      </div>
+      <p>AI Evaluation Specialist, ML Engineer and Full Stack Developer from Andhra Pradesh, India.</p>
+    </div>
+    <div class="bento">
+      <div class="tile col-7 about-body reveal">
+        <p>B.E. Computer Science and Engineering (Data Science), Anna University (2025). At <strong>Scale AI (Outlier)</strong> I reviewed frontier AI and was promoted from Attempter to Reviewer. I designed binary pass/fail rubrics backed by pytest verifiers and audited agentic tool-use trajectories. That engagement has concluded and I am now open to new roles.</p>
+        <p>I work across AI evaluation, LLM engineering, RLHF/RLAIF and full-stack ML. My focus is finding the exact turn where a model breaks and building the deterministic verifier that proves it.</p>
+        <div class="skill-group" style="margin-top:18px">
+          <div class="gt">Languages</div>
+          <div class="lang-row">
+            <span class="chip">Telugu</span>
+            <span class="chip">English</span>
+            <span class="chip">Hindi</span>
+            <span class="chip">Tamil</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile finance-tile col-5 reveal">
+        <h3><i class="fa-solid fa-file-invoice-dollar"></i> Finance and Taxation</h3>
+        <div class="badge-line"><i class="fa-solid fa-award"></i><span class="t">US Enrolled Agent (EA) credential</span> <span class="hl">In progress</span></div>
+        <div class="badge-line"><i class="fa-solid fa-receipt"></i><span class="t">Indian income-tax returns</span> <span class="hl">ITR-1 to ITR-4</span></div>
+        <div class="badge-line"><i class="fa-solid fa-chart-line"></i><span class="t">4+ years trading across crypto and Indian equities</span></div>
+        <div class="badge-line"><i class="fa-solid fa-briefcase"></i><span class="t">Ex-MCX Advisor at Zebu Share and Wealth Management</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Skills and Expertise</div>
+        <h2>The full stack of building and proving</h2>
+      </div>
+      <p>From rubric design and trajectory review to ML systems, web engineering, and taxation.</p>
+    </div>
+    <div class="bento">
+      <div class="tile col-4 reveal">
+        <div class="skill-group">
+          <div class="gt">AI Evaluation and ML</div>
+          <div class="tags">
+            <span class="chip">RLHF/RLAIF</span><span class="chip">Rubric design</span><span class="chip">Agentic trajectory review</span>
+            <span class="chip">pytest</span><span class="chip">Python</span><span class="chip">scikit-learn</span>
+            <span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">NumPy</span>
+            <span class="chip">Pandas</span><span class="chip">OpenCV</span><span class="chip">SHAP</span><span class="chip">NLTK</span>
+          </div>
+        </div>
+      </div>
+      <div class="tile col-4 reveal">
+        <div class="skill-group">
+          <div class="gt">Engineering and Web</div>
+          <div class="tags">
+            <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Node.js</span>
+            <span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C/C++</span>
+            <span class="chip">HTML/CSS</span><span class="chip">Streamlit</span><span class="chip">MATLAB</span>
+          </div>
+        </div>
+      </div>
+      <div class="tile col-4 reveal">
+        <div class="skill-group">
+          <div class="gt">Platforms and Tools</div>
+          <div class="tags">
+            <span class="chip">AWS</span><span class="chip">Git</span><span class="chip">Linux</span>
+            <span class="chip">Jupyter</span><span class="chip">Arduino</span><span class="chip">Power BI/Excel</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="gt">Finance and Taxation</div>
+          <div class="tags">
+            <span class="chip">US EA (in progress)</span><span class="chip">ITR-1 to ITR-4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRONTIER AI EVALUATION -->
+  <section id="eval">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Frontier AI Evaluation</div>
+        <h2>Pipelines, rubrics, and verifiers</h2>
+      </div>
+      <p>Golden/silver trajectory pipelines, safety gates, and QC tooling for frontier models.</p>
+    </div>
+    <div class="card-grid">
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>OpenClaw Atlas</h3><span class="label private">Private</span></div>
+        <div class="org">Scale AI (Outlier)</div>
+        <p>Golden/silver memory-trap pipeline for authoring and QC-ing agentic RL trajectories: story -> discrepancy -> failure grade -> silver fix -> pytest verifiers -> QC.</p>
+        <div class="link-row">
+          <a class="lnk muted" href="workflows.html#openclaw"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>Blue Shell</h3><span class="label private">Private</span></div>
+        <div class="org">Scale AI (Outlier)</div>
+        <p>Two-turn golden/silver capabilities-RL pipeline across six tools where Turn 1 must fail a rubric trap and a Turn-2 nudge must pass 100 percent.</p>
+        <div class="link-row">
+          <a class="lnk muted" href="workflows.html#blue-shell"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>Lobster Safety</h3><span class="label private">Private</span></div>
+        <div class="org">Scale AI (Outlier)</div>
+        <p>Nine-worker safety-RL pipeline with a hard PASS/STOP gate, grading trajectories against an SSOT taxonomy (F1-F10 failure types, S0-S3 severity).</p>
+        <div class="link-row">
+          <a class="lnk muted" href="workflows.html#lobster-safety"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>TrajLens</h3><span class="label public">Public</span></div>
+        <div class="org">Personal, 2026</div>
+        <p>Interactive agentic-trajectory auditor; grades each turn against a 7-criterion binary rubric with deterministic verifiers; quantifies where an LLM-judge disagrees with human labels.</p>
+        <div class="link-row">
+          <a class="lnk" href="https://trajlens-mjh2vgfctsfyhrkulmtrxc.streamlit.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+          <a class="lnk muted" href="https://github.com/PSPMANI/trajlens" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>Project Seal - Authoring</h3><span class="label private">Private</span></div>
+        <div class="org">Handshake AI</div>
+        <p>Runbook for writing hard single-answer multi-hop search questions that defeat frontier models; 8 quality rules, 18 techniques.</p>
+        <div class="link-row">
+          <a class="lnk muted" href="workflows.html#project-seal"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal">
+        <div class="top"><h3>Project Seal - QC Checker</h3><span class="label public">Public</span></div>
+        <div class="org">Handshake AI</div>
+        <p>Automated QC checker that runs a task package against the rejection rules.</p>
+        <div class="link-row">
+          <a class="lnk" href="https://pspmani.github.io/project-seal-qc/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+          <a class="lnk muted" href="https://github.com/PSPMANI/project-seal-qc" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ML AND ENGINEERING PROJECTS -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">ML and Engineering Projects</div>
+        <h2>Shipped, end to end</h2>
+      </div>
+      <div class="filter-row" id="filterRow">
+        <button class="fbtn active" data-filter="all">All</button>
+        <button class="fbtn" data-filter="ML &amp; Data">ML &amp; Data</button>
+        <button class="fbtn" data-filter="NLP">NLP</button>
+        <button class="fbtn" data-filter="Computer Vision">Computer Vision</button>
+        <button class="fbtn" data-filter="Hardware">Hardware</button>
+      </div>
+    </div>
+    <div class="card-grid" id="projGrid">
+
+      <div class="tile proj col-6 reveal" data-cat="ML &amp; Data">
+        <div class="top"><h3>Customer Churn Predictor</h3><span class="org">ML &amp; Data, 2026</span></div>
+        <p>End-to-end ML app predicting telecom churn (ROC-AUC 0.843) on 7,000+ customers; Gradient Boosting; Streamlit; live risk scoring.</p>
+        <div class="tech-row"><span class="tech">Python</span><span class="tech">scikit-learn</span><span class="tech">Streamlit</span></div>
+        <div class="link-row">
+          <a class="lnk" href="https://customer-churn-predictor-xndnwqzrpb9fduv8rtee3y.streamlit.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+          <a class="lnk muted" href="https://github.com/PSPMANI/customer-churn-predictor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal" data-cat="ML &amp; Data">
+        <div class="top"><h3>Diabetes Foot Pressure Detection</h3><span class="org">ML &amp; Data, 2025</span></div>
+        <p>Full ML pipeline from Arduino sensors to classifiers at 92.5% accuracy; caught and fixed session-level data leakage with GroupKFold.</p>
+        <div class="tech-row"><span class="tech">Arduino</span><span class="tech">MATLAB</span><span class="tech">scikit-learn</span><span class="tech">Keras</span></div>
+        <div class="link-row">
+          <a class="lnk muted" href="https://github.com/PSPMANI/diabetes-foot-pressure-detection" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal" data-cat="NLP">
+        <div class="top"><h3>Spam Email Classifier</h3><span class="org">NLP, 2024</span></div>
+        <p>NLTK + TF-IDF, 97.8% accuracy with Linear SVM on 1000+ emails.</p>
+        <div class="tech-row"><span class="tech">Python</span><span class="tech">NLTK</span><span class="tech">TF-IDF</span><span class="tech">SVM</span></div>
+        <div class="link-row">
+          <a class="lnk muted" href="https://github.com/PSPMANI/spam-email-classifier" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal" data-cat="Computer Vision">
+        <div class="top"><h3>Face Recognition (OpenCV)</h3><span class="org">Computer Vision, 2024</span></div>
+        <p>Real-time detection and recognition at 15+ FPS, 70%+ confidence, Haar Cascades + LBPH.</p>
+        <div class="tech-row"><span class="tech">Python</span><span class="tech">OpenCV</span><span class="tech">LBPH</span></div>
+        <div class="link-row">
+          <a class="lnk muted" href="https://github.com/PSPMANI/face-recognition-opencv" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal" data-cat="Hardware">
+        <div class="top"><h3>IoT Environment Monitor</h3><span class="org">Hardware, 2023</span></div>
+        <p>Arduino DHT11/BMP180 streaming temperature, humidity, pressure every 2 seconds to a remote dashboard.</p>
+        <div class="tech-row"><span class="tech">Arduino</span><span class="tech">DHT11</span><span class="tech">BMP180</span></div>
+        <div class="link-row">
+          <a class="lnk muted" href="https://github.com/PSPMANI/iot-environment-monitor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+      <div class="tile proj col-6 reveal" data-cat="ML &amp; Data">
+        <div class="top"><h3>Google Doc Grid Parser</h3><span class="org">ML &amp; Data</span></div>
+        <p>Parses coordinate triples from a published Google Doc and prints the hidden block-letter message.</p>
+        <div class="tech-row"><span class="tech">Python</span><span class="tech">BeautifulSoup</span></div>
+        <div class="link-row">
+          <a class="lnk muted" href="https://github.com/PSPMANI/google-doc-grid-parser" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Experience</div>
+        <h2>Where I have worked</h2>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="tile col-12 reveal">
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-microscope"></i></div>
+          <div>
+            <h4>AI Evaluation Specialist, Reviewer - Scale AI (Outlier)</h4>
+            <div class="meta">2026 - Engagement complete</div>
+            <p>Promoted from Attempter to Reviewer. Designed binary pass/fail rubrics backed by pytest verifiers and audited agentic tool-use trajectories on frontier AI.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h4>AI Evaluation Contributor - Handshake AI</h4>
+            <div class="meta">2026</div>
+            <p>Authored hard single-answer multi-hop search questions and built automated QC tooling against rejection rules.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <h4>MCX Advisor - Zebu Share and Wealth Management</h4>
+            <div class="meta">Commodities and markets advisory</div>
+            <p>Advised on MCX commodity markets; foundation for 4+ years trading across crypto and Indian equities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + CERTIFICATIONS -->
+  <section id="education">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Education and Certifications</div>
+        <h2>Foundations and credentials</h2>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="tile col-7 reveal">
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <h4>B.E. CSE (Data Science)</h4>
+            <div class="meta">Jansons Institute of Technology (Anna University), 2021-2025 - CGPA 8.0</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-school"></i></div>
+          <div>
+            <h4>Higher Secondary (XII) MPC</h4>
+            <div class="meta">Sri Sai Junior College, Kanigiri AP, 2021</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"><i class="fa-solid fa-book"></i></div>
+          <div>
+            <h4>Secondary (X)</h4>
+            <div class="meta">Nagarjuna Model School, Kadapa AP, 2019 - CGPA 9.8</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile col-5 reveal">
+        <div class="skill-group"><div class="gt">Certifications</div></div>
+        <div class="cert-line"><i class="fa-brands fa-aws"></i><div><b>AWS Academy Cloud Foundations</b> (2022)</div></div>
+        <div class="cert-line"><i class="fa-solid fa-file-invoice-dollar"></i><div><b>Finance Foundations: Income Taxes</b>, LinkedIn (2025)</div></div>
+        <div class="cert-line"><i class="fa-solid fa-microsoft"></i><div><b>Microsoft 365 Productivity Advanced</b> (2022)</div></div>
+        <div class="cert-line"><i class="fa-solid fa-user-shield"></i><div><b>Ethical Hacking and Penetration Testing</b>, Scholiverse (2022)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="bento">
+      <div class="tile contact-tile col-12 reveal finance-tile">
+        <span class="otw" style="align-self:center"><span class="pulse"></span> Open to work</span>
+        <h2>Let us build and prove the next model</h2>
+        <p>Open to AI Evaluation, LLM Engineering, RLHF/RLAIF and ML Engineer roles. Remote or relocation. Fastest reply by email.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:pmanikanta818@gmail.com"><i class="fa-solid fa-envelope"></i> pmanikanta818@gmail.com</a>
+          <a class="btn" href="Pathi_Manikanta_Resume.pdf"><i class="fa-solid fa-download"></i> Resume</a>
+          <a class="btn" href="https://github.com/PSPMANI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn" href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">01</span>
-      <h2>About</h2>
-    </div>
-    <div class="about-grid">
-      <div class="card reveal">
-        <p>AI Evaluation Specialist, ML Engineer and Full Stack Developer from Andhra Pradesh, India. B.E. Computer Science and Engineering (Data Science), Anna University (2025).</p>
-        <p>At Scale AI (Outlier) I reviewed frontier AI and was promoted from Attempter to Reviewer. I designed binary pass/fail rubrics backed by pytest verifiers and audited agentic tool-use trajectories. That engagement has concluded and I am now open to new roles.</p>
-        <div class="lang-row">
-          <span class="tag">Telugu</span>
-          <span class="tag">English</span>
-          <span class="tag">Hindi</span>
-          <span class="tag">Tamil</span>
-        </div>
-      </div>
-      <div class="card fin-card reveal">
-        <h3>Finance and Taxation</h3>
-        <ul class="fin-list">
-          <li><i class="fa-solid fa-certificate"></i><span>Pursuing the US Enrolled Agent (EA) credential.</span></li>
-          <li><i class="fa-solid fa-file-invoice"></i><span>Prepares Indian income-tax returns from ITR-1 through ITR-4.</span></li>
-          <li><i class="fa-solid fa-chart-line"></i><span>4+ years trading across crypto and Indian equities.</span></li>
-          <li><i class="fa-solid fa-briefcase"></i><span>Ex-MCX Advisor at Zebu Share and Wealth Management.</span></li>
-        </ul>
-        <div class="fin-badges">
-          <span class="tag">US EA (In Progress)</span>
-          <span class="tag">ITR-1 to ITR-4</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">02</span>
-      <h2>Skills / Expertise</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-block reveal">
-        <h4>ML / Evaluation</h4>
-        <div class="chips">
-          <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span>
-          <span class="chip">Keras</span><span class="chip">NumPy</span><span class="chip">Pandas</span>
-          <span class="chip">OpenCV</span><span class="chip">SHAP</span><span class="chip">pytest</span>
-          <span class="chip">NLTK</span><span class="chip">RLHF/RLAIF</span><span class="chip">Rubric Design</span>
-          <span class="chip">Agentic Trajectory Review</span>
-        </div>
-      </div>
-      <div class="skill-block reveal">
-        <h4>Engineering / Web</h4>
-        <div class="chips">
-          <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Node.js</span>
-          <span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C/C++</span>
-          <span class="chip">HTML/CSS</span><span class="chip">Streamlit</span><span class="chip">MATLAB</span>
-        </div>
-      </div>
-      <div class="skill-block reveal">
-        <h4>Tooling / Platform</h4>
-        <div class="chips">
-          <span class="chip">AWS</span><span class="chip">Git</span><span class="chip">Linux</span>
-          <span class="chip">Jupyter</span><span class="chip">Arduino</span><span class="chip">Power BI/Excel</span>
-        </div>
-      </div>
-      <div class="skill-block reveal">
-        <h4>Finance / Tax</h4>
-        <div class="chips">
-          <span class="chip">US EA (In Progress)</span><span class="chip">ITR-1 to ITR-4</span>
-          <span class="chip">Equities</span><span class="chip">Crypto</span>
-        </div>
-      </div>
-      <div class="skill-block reveal">
-        <h4>Focus Areas</h4>
-        <div class="chips">
-          <span class="chip">Pass/Fail Rubrics</span><span class="chip">Pytest Verifiers</span>
-          <span class="chip">LLM-Judge QC</span><span class="chip">Failure Analysis</span>
-          <span class="chip">Safety RL</span><span class="chip">Capabilities RL</span>
-        </div>
-      </div>
-      <div class="skill-block reveal">
-        <h4>Languages</h4>
-        <div class="chips">
-          <span class="chip">Telugu</span><span class="chip">English</span>
-          <span class="chip">Hindi</span><span class="chip">Tamil</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FRONTIER AI EVALUATION -->
-<section id="eval">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">03</span>
-      <h2>Frontier AI Evaluation</h2>
-    </div>
-    <div class="eval-grid">
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>OpenClaw Atlas</h3>
-          <span class="tag priv">Private</span>
-        </div>
-        <span class="src">Scale AI (Outlier)</span>
-        <p>Golden/silver memory-trap pipeline for authoring and QC-ing agentic RL trajectories: story -> discrepancy -> failure grade -> silver fix -> pytest verifiers -> QC.</p>
-        <div class="eval-links">
-          <a class="link-btn" href="workflows.html#openclaw"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
-        </div>
-      </div>
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>Blue Shell</h3>
-          <span class="tag priv">Private</span>
-        </div>
-        <span class="src">Scale AI (Outlier)</span>
-        <p>Two-turn golden/silver capabilities-RL pipeline across six tools where Turn 1 must fail a rubric trap and a Turn-2 nudge must pass 100 percent.</p>
-        <div class="eval-links">
-          <a class="link-btn" href="workflows.html#blue-shell"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
-        </div>
-      </div>
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>Lobster Safety</h3>
-          <span class="tag priv">Private</span>
-        </div>
-        <span class="src">Scale AI (Outlier)</span>
-        <p>Nine-worker safety-RL pipeline with a hard PASS/STOP gate, grading trajectories against an SSOT taxonomy (F1-F10 failure types, S0-S3 severity).</p>
-        <div class="eval-links">
-          <a class="link-btn" href="workflows.html#lobster-safety"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
-        </div>
-      </div>
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>TrajLens</h3>
-          <span class="tag pub">Public</span>
-        </div>
-        <span class="src">Personal 2026</span>
-        <p>Interactive agentic-trajectory auditor; grades each turn against a 7-criterion binary rubric with deterministic verifiers; quantifies where an LLM-judge disagrees with human labels.</p>
-        <div class="eval-links">
-          <a class="link-btn" href="https://trajlens-mjh2vgfctsfyhrkulmtrxc.streamlit.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
-          <a class="link-btn" href="https://github.com/PSPMANI/trajlens" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>Project Seal - Authoring</h3>
-          <span class="tag priv">Private</span>
-        </div>
-        <span class="src">Handshake AI</span>
-        <p>Runbook for writing hard single-answer multi-hop search questions that defeat frontier models; 8 quality rules, 18 techniques.</p>
-        <div class="eval-links">
-          <a class="link-btn" href="workflows.html#project-seal"><i class="fa-solid fa-diagram-project"></i> Workflow</a>
-        </div>
-      </div>
-
-      <div class="eval-card reveal">
-        <div class="top">
-          <h3>Project Seal - QC Checker</h3>
-          <span class="tag pub">Public</span>
-        </div>
-        <span class="src">Handshake AI</span>
-        <p>Automated QC checker that runs a task package against the rejection rules.</p>
-        <div class="eval-links">
-          <a class="link-btn" href="https://pspmani.github.io/project-seal-qc/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
-          <a class="link-btn" href="https://github.com/PSPMANI/project-seal-qc" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ML AND ENGINEERING PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">04</span>
-      <h2>ML and Engineering Projects</h2>
-    </div>
-    <div class="filter-row reveal">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ML &amp; Data">ML &amp; Data</button>
-      <button class="filter-btn" data-filter="NLP">NLP</button>
-      <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
-      <button class="filter-btn" data-filter="Hardware">Hardware</button>
-    </div>
-    <div class="proj-grid" id="projGrid">
-
-      <div class="proj-card reveal" data-cat="ML &amp; Data">
-        <span class="tag pub cat">ML &amp; Data - 2026</span>
-        <h3>Customer Churn Predictor</h3>
-        <p>End-to-end ML app predicting telecom churn (ROC-AUC 0.843) on 7,000+ customers; Gradient Boosting; Streamlit; live risk scoring.</p>
-        <div class="proj-tech"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Streamlit</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://customer-churn-predictor-xndnwqzrpb9fduv8rtee3y.streamlit.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
-          <a class="link-btn" href="https://github.com/PSPMANI/customer-churn-predictor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal" data-cat="ML &amp; Data">
-        <span class="tag cat">ML &amp; Data - 2025</span>
-        <h3>Diabetes Foot Pressure Detection</h3>
-        <p>Full ML pipeline from Arduino sensors to classifiers at 92.5% accuracy; caught and fixed session-level data leakage with GroupKFold.</p>
-        <div class="proj-tech"><span class="chip">Arduino</span><span class="chip">MATLAB</span><span class="chip">scikit-learn</span><span class="chip">Keras</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://github.com/PSPMANI/diabetes-foot-pressure-detection" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal" data-cat="NLP">
-        <span class="tag cat">NLP - 2024</span>
-        <h3>Spam Email Classifier</h3>
-        <p>NLTK + TF-IDF, 97.8% accuracy with Linear SVM on 1000+ emails.</p>
-        <div class="proj-tech"><span class="chip">Python</span><span class="chip">NLTK</span><span class="chip">TF-IDF</span><span class="chip">SVM</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://github.com/PSPMANI/spam-email-classifier" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal" data-cat="Computer Vision">
-        <span class="tag cat">Computer Vision - 2024</span>
-        <h3>Face Recognition (OpenCV)</h3>
-        <p>Real-time detection and recognition at 15+ FPS, 70%+ confidence, Haar Cascades + LBPH.</p>
-        <div class="proj-tech"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">LBPH</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://github.com/PSPMANI/face-recognition-opencv" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal" data-cat="Hardware">
-        <span class="tag cat">Hardware - 2023</span>
-        <h3>IoT Environment Monitor</h3>
-        <p>Arduino DHT11/BMP180 streaming temperature, humidity, pressure every 2 seconds to a remote dashboard.</p>
-        <div class="proj-tech"><span class="chip">Arduino</span><span class="chip">DHT11</span><span class="chip">BMP180</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://github.com/PSPMANI/iot-environment-monitor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-      <div class="proj-card reveal" data-cat="ML &amp; Data">
-        <span class="tag cat">ML &amp; Data</span>
-        <h3>Google Doc Grid Parser</h3>
-        <p>Parses coordinate triples from a published Google Doc and prints the hidden block-letter message.</p>
-        <div class="proj-tech"><span class="chip">Python</span><span class="chip">BeautifulSoup</span></div>
-        <div class="eval-links">
-          <a class="link-btn" href="https://github.com/PSPMANI/google-doc-grid-parser" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">05</span>
-      <h2>Experience</h2>
-    </div>
-    <div class="card reveal">
-      <div class="timeline">
-        <div class="tl-item">
-          <h4>AI Evaluation Specialist, Reviewer</h4>
-          <div class="meta">Scale AI (Outlier) - 2026</div>
-          <p>Promoted Attempter to Reviewer. Designed binary pass/fail rubrics backed by pytest verifiers and audited agentic tool-use trajectories. Engagement complete.</p>
-        </div>
-        <div class="tl-item">
-          <h4>AI Evaluation Contributor</h4>
-          <div class="meta">Handshake AI - 2026</div>
-          <p>Authored hard single-answer multi-hop search questions and built automated QC checks against rejection rules.</p>
-        </div>
-        <div class="tl-item">
-          <h4>MCX Advisor</h4>
-          <div class="meta">Zebu Share and Wealth Management</div>
-          <p>Advised on commodity markets; foundation for 4+ years of trading across crypto and Indian equities.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION + CERTIFICATIONS -->
-<section id="education">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">06</span>
-      <h2>Education + Certifications</h2>
-    </div>
-    <div class="two-col">
-      <div class="card reveal">
-        <h3 style="text-transform:uppercase;font-size:20px;margin-bottom:18px;">Education</h3>
-        <div class="timeline">
-          <div class="tl-item">
-            <h4>B.E. CSE (Data Science)</h4>
-            <div class="meta">Jansons Institute of Technology (Anna University) - 2021-2025</div>
-            <p>CGPA 8.0.</p>
-          </div>
-          <div class="tl-item">
-            <h4>Higher Secondary (XII) - MPC</h4>
-            <div class="meta">Sri Sai Junior College, Kanigiri AP - 2021</div>
-          </div>
-          <div class="tl-item">
-            <h4>Secondary (X)</h4>
-            <div class="meta">Nagarjuna Model School, Kadapa AP - 2019</div>
-            <p>CGPA 9.8.</p>
-          </div>
-        </div>
-      </div>
-      <div class="card reveal">
-        <h3 style="text-transform:uppercase;font-size:20px;margin-bottom:18px;">Certifications</h3>
-        <ul class="cert-list">
-          <li><i class="fa-solid fa-award"></i><span>AWS Academy Cloud Foundations (2022)</span></li>
-          <li><i class="fa-solid fa-award"></i><span>Finance Foundations: Income Taxes, LinkedIn (2025)</span></li>
-          <li><i class="fa-solid fa-award"></i><span>Microsoft 365 Productivity Advanced (2022)</span></li>
-          <li><i class="fa-solid fa-award"></i><span>Ethical Hacking and Penetration Testing, Scholiverse (2022)</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num">07</span>
-      <h2>Contact</h2>
-    </div>
-    <div class="contact-box reveal">
-      <span class="contact-avail"><span class="blink"></span>Open to Work</span>
-      <h3>Let's Build and Prove It</h3>
-      <p>Open to roles in AI Evaluation, LLM Engineering, RLHF/RLAIF, and ML Engineering. Remote or relocation. Fastest reply by email.</p>
-      <div class="cta-row">
-        <a class="btn lime" href="mailto:pmanikanta818@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
-        <a class="btn" href="Pathi_Manikanta_Resume.pdf"><i class="fa-solid fa-download"></i> Resume</a>
-        <a class="btn" href="https://github.com/PSPMANI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-        <a class="btn blue" href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="wrap foot-in">
-    <a href="#top" class="brand"><span class="dot"></span>PATHI MANIKANTA</a>
-    <div class="foot-social">
+  <div class="foot-inner">
+    <div class="fbrand">Pathi Manikanta</div>
+    <div class="foot-links">
       <a href="mailto:pmanikanta818@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/PSPMANI" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/pathi-manikanta-18668821a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
     </div>
-    <div class="foot-note">AI Evaluation Specialist / ML Engineer / RLHF-RLAIF - Building and evaluating frontier AI, with proof.</div>
+    <small>AI Evaluation Specialist / ML Engineer / RLHF-RLAIF - Andhra Pradesh, India</small>
   </div>
 </footer>
 
 <script>
-  // Mobile nav toggle
-  var toggle=document.getElementById('navToggle');
-  var links=document.getElementById('navLinks');
-  toggle.addEventListener('click',function(){links.classList.toggle('open');});
-  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');}});
+  // Mobile nav
+  var burger=document.getElementById('burger');
+  var navLinks=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){navLinks.classList.toggle('open');});
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navLinks.classList.remove('open');});});
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
   // Project filter
-  var filterBtns=document.querySelectorAll('.filter-btn');
-  var cards=document.querySelectorAll('#projGrid .proj-card');
-  filterBtns.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      filterBtns.forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      var f=btn.getAttribute('data-filter');
-      cards.forEach(function(c){
-        if(f==='all'||c.getAttribute('data-cat')===f){c.classList.remove('is-hidden');}
-        else{c.classList.add('is-hidden');}
-      });
+  var filterRow=document.getElementById('filterRow');
+  var projects=document.querySelectorAll('#projGrid .proj');
+  filterRow.addEventListener('click',function(e){
+    var btn=e.target.closest('.fbtn'); if(!btn) return;
+    filterRow.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var f=btn.getAttribute('data-filter');
+    projects.forEach(function(p){
+      var cat=p.getAttribute('data-cat');
+      if(f==='all' || cat===f){ p.classList.remove('hide'); }
+      else { p.classList.add('hide'); }
     });
   });
-
-  // Scroll reveal
-  var reveals=document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
-      });
-    },{threshold:0.12});
-    reveals.forEach(function(r){io.observe(r);});
-  }else{
-    reveals.forEach(function(r){r.classList.add('in');});
-  }
 </script>
 
 </body>
